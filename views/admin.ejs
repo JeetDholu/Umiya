@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-wrapper">
+
+    <h1 class="admin-title">Admin Control Panel</h1>
+
+    <!-- TABS -->
+    <div class="admin-tabs">
+        <button class="tab-btn active" onclick="showTab('company', this)">Company</button>
+       <button class="tab-btn" onclick="showTab('product', this)">Products</button>
+    </div>
+
+    <!-- COMPANY SECTION -->
+    <div id="company" class="tab-content active">
+
+        <form action="/add-company" method="POST" enctype="multipart/form-data" class="admin-form">
+            <input type="text" name="name" placeholder="Company Name" required>
+            <input type="file" name="image" required>
+            <button>Add Company</button>
+        </form>
+
+        <div class="admin-list">
+            <% companies.forEach(c => { %>
+                <div class="admin-card">
+                    <img src="<%= c.image %>">
+                    <p><%= c.name %></p>
+                    <a href="/delete/<%= c._id %>" class="delete-btn">Delete</a>
+                </div>
+            <% }) %>
+        </div>
+
+    </div>
+
+    <!-- PRODUCT SECTION -->
+    <div id="product" class="tab-content">
+
+        <form action="/add-product" method="POST" enctype="multipart/form-data" class="admin-form">
+            <input type="text" name="name" placeholder="Product Name" required>
+
+            <select name="company" required>
+                <% companies.forEach(c => { %>
+                    <option value="<%= c.name %>"><%= c.name %></option>
+                <% }) %>
+            </select>
+
+            <input type="file" name="image" required>
+            <button>Add Product</button>
+        </form>
+
+        <div class="admin-list">
+            <% products.forEach(p => { %>
+                <div class="admin-card">
+                    <img src="<%= p.image %>">
+                    <p><%= p.name %></p>
+                    <a href="/delete-product/<%= p._id %>" class="delete-btn">Delete</a>
+                </div>
+            <% }) %>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+function showTab(tab, btn){
+
+    document.querySelectorAll(".tab-content")
+    .forEach(el => el.classList.remove("active"));
+
+    document.querySelectorAll(".tab-btn")
+    .forEach(el => el.classList.remove("active"));
+
+    document.getElementById(tab)
+    .classList.add("active");
+
+    btn.classList.add("active");
+}
+
+/* OPEN PRODUCT TAB AFTER PRODUCT ADD */
+window.onload = () => {
+
+    if(window.location.hash === "#product"){
+
+        document.querySelectorAll(".tab-content")
+        .forEach(el => el.classList.remove("active"));
+
+        document.querySelectorAll(".tab-btn")
+        .forEach(el => el.classList.remove("active"));
+
+        document.getElementById("product")
+        .classList.add("active");
+
+        document.querySelectorAll(".tab-btn")[1]
+        .classList.add("active");
+    }
+}
+
+</script>
+
+</body>
+</html>

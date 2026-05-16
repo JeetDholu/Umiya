@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Products</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<%- include("partials/navbar") %>
+
+<!-- TITLE -->
+<div class="product-title">
+    <h1>Our Premium Products</h1>
+</div>
+
+<div class="product-page">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+        <h3>Companies</h3>
+
+                    <!-- ALL PRODUCTS -->
+            <a href="/products"
+            class="filter-btn <%= !selectedCompany ? 'active' : '' %>">
+
+                All Products
+
+            </a>
+
+            <!-- COMPANY LIST -->
+            <% companies.forEach(c => { %>
+
+                <a href="/products?company=<%= c.name %>"
+                class="filter-btn <%= selectedCompany === c.name ? 'active' : '' %>">
+
+                    <%= c.name %>
+
+                </a>
+
+<% }) %>
+
+    </div>
+
+    <!-- PRODUCTS -->
+    <div class="product-container">
+
+        <% if(products.length === 0){ %>
+
+            <p class="no-data">No products found</p>
+
+        <% } %>
+
+        <% products.forEach(p => { %>
+
+            <div class="product-card">
+
+                <div class="img-box">
+                    <img src="<%= p.image %>">
+                </div>
+
+                <h4><%= p.name %></h4>
+
+            </div>
+
+        <% }) %>
+
+    </div>
+
+</div>
+<%- include("partials/footer") %>
+</body>
+</html>
