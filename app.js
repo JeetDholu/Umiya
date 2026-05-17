@@ -7,7 +7,7 @@
     const Product = require("./models/Product");
 
 
-    mongoose.connect("mongodb://127.0.0.1:27017/agroDB")
+    mongoose.connect("mongodb+srv://Umiya:Umiya@cluster.roninyt.mongodb.net/?appName=Cluster")
     .then(()=> console.log("MongoDB Connected"));
 
     app.set("view engine", "ejs");
