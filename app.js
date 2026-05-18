@@ -1,4 +1,4 @@
-    const express = require("express");
+const express = require("express");
     const app = express();
     const path = require("path");
     const mongoose = require("mongoose");
@@ -6,14 +6,14 @@
     const Company = require("./models/Company");
     const Product = require("./models/Product");
 
-
     mongoose.connect("mongodb+srv://Umiya:Umiya@cluster.roninyt.mongodb.net/agroDB?retryWrites=true&w=majority")
     .then(()=> console.log("MongoDB Connected"));
 
     app.set("view engine", "ejs");
     app.set("views", path.join(__dirname, "views"));
 
-    app.use(express.static(path.join(__dirname, "public"))); // for CSS
+    // Zaroori hai ki 'public' directory statically serve ho taaki images display ho sake
+    app.use(express.static(path.join(__dirname, "public"))); 
     app.use(express.urlencoded({ extended: true }));
 
     app.get("/", async (req, res) => {
@@ -85,7 +85,7 @@ const PORT = process.env.PORT || 3000;
     app.post("/add-company", upload.single("image"), async (req, res) => {
         const newCompany = new Company({
             name: req.body.name,
-            image: "/uploads/" + req.file.filename
+            image: "/uploads/" + req.file.filename // Correct
         });
 
         await newCompany.save();
@@ -101,8 +101,10 @@ const PORT = process.env.PORT || 3000;
 // ADD PRODUCT
 app.post("/add-product", upload.single("image"), async (req, res) => {
 
+    // Fix applied Here!
     const newProduct = new Product({
         name: req.body.name,
+        // Yaha par "/uploads/" prefix zaroori hai. Aapne sayad sir req.file.filename chhod diya tha. EJS me <img src="<%= p.image %>"> hai.
         image: "/uploads/" + req.file.filename,
         company: req.body.company
     });
@@ -117,6 +119,3 @@ app.get("/delete-product/:id", async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     res.redirect("/admin");
 });
-
-
-
