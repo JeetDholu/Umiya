@@ -2640,4 +2640,346 @@ body{
 
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
-.delay-300 { transition-delay: 300ms; }
+.delay-300 { transition-delay: 300ms; }
+# Complete Responsive CSS Structure
+
+Tumhara CSS bahut bada hai aur usme duplicate sections bhi hain.
+
+Best solution:
+
+* Existing desktop design same rahe
+* Sirf responsive fixes END me add karo
+* Purana code delete mat karo
+
+Neeche final optimized responsive block diya hai. Isko bas current `style.css` ke bilkul END me paste karo.
+
+```css
+
+html,body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+iframe{
+    max-width:100%;
+}
+
+/* ================= MOBILE NAVBAR ================= */
+
+@media(max-width:768px){
+
+    .navbar{
+        padding:10px 15px;
+    }
+
+    .logo-section img{
+        height:52px;
+    }
+
+    .logo-text .top{
+        font-size:14px;
+    }
+
+    .logo-text .bottom{
+        font-size:11px;
+        letter-spacing:1px;
+    }
+
+    .nav-links{
+        width:240px;
+    }
+
+    .menu-btn{
+        display:flex;
+    }
+
+/* ================= HERO ================= */
+
+    .hero{
+        height:auto;
+        padding:130px 18px 80px;
+        text-align:center;
+        justify-content:center;
+    }
+
+    .hero-content{
+        max-width:100%;
+    }
+
+    .hero-content h1{
+        font-size:34px;
+        line-height:1.25;
+    }
+
+    .hero-content p{
+        font-size:14px;
+        line-height:1.8;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:100%;
+    }
+
+/* ================= PRODUCTS ================= */
+
+    .products{
+        width:94%;
+        grid-template-columns:1fr;
+        margin-top:-20px;
+    }
+
+    .card{
+        padding:28px 22px;
+        border-radius:24px;
+    }
+
+    .card h2{
+        font-size:24px;
+    }
+
+    .card p{
+        font-size:14px;
+    }
+
+/* ================= SECTION TITLE ================= */
+
+    .section-title h2{
+        font-size:28px;
+    }
+
+/* ================= INFO SECTION ================= */
+
+    .info-card{
+        flex-direction:column;
+    }
+
+    .info-map,
+    .info-content{
+        width:100%;
+    }
+
+    .info-map{
+        height:220px;
+    }
+
+    .info-content{
+        padding:30px 20px;
+    }
+
+    .info-content h2{
+        font-size:28px;
+    }
+
+    .info-content p{
+        font-size:14px;
+    }
+
+/* ================= SLIDER ================= */
+
+    .slider{
+        padding:30px 15px;
+    }
+
+    .slide{
+        min-width:190px;
+        padding:20px;
+        margin-right:20px;
+    }
+
+    .logo-box{
+        width:110px;
+        height:110px;
+    }
+
+    .slide p{
+        font-size:14px;
+    }
+
+/* ================= FOOTER ================= */
+
+    .elite-container{
+        flex-direction:column;
+        gap:35px;
+        padding:0 20px;
+    }
+
+    .elite-brand h2{
+        font-size:24px;
+    }
+
+    .elite-brand span{
+        font-size:18px;
+        letter-spacing:3px;
+    }
+
+/* ================= PRODUCT PAGE ================= */
+
+    .product-page{
+        flex-direction:column;
+        padding:20px;
+    }
+
+    .sidebar{
+        width:100%;
+        position:relative;
+        top:0;
+    }
+
+    .product-container{
+        grid-template-columns:1fr 1fr;
+        gap:14px;
+    }
+
+    .product-card{
+        min-height:180px;
+        height:auto;
+        padding:14px;
+    }
+
+    .img-box{
+        height:90px;
+    }
+
+    .product-card h4{
+        font-size:12px;
+    }
+
+/* ================= ABOUT PAGE ================= */
+
+    .about-wrapper{
+        flex-direction:column;
+        width:94%;
+        padding:20px;
+    }
+
+    .about-left h2{
+        font-size:26px;
+    }
+
+    .about-left p{
+        font-size:14px;
+    }
+
+    .stats-row{
+        flex-direction:column;
+    }
+
+    .about-bottom{
+        flex-direction:column;
+    }
+
+    .bottom-left,
+    .bottom-right{
+        flex-direction:column;
+    }
+
+/* ================= BRANCH PAGE ================= */
+
+    .branches-wrapper{
+        flex-direction:column;
+        width:95%;
+        padding:20px;
+    }
+
+    .branches-left{
+        width:100%;
+    }
+
+    .branches-left h2{
+        font-size:30px;
+    }
+
+    .branches-left p{
+        font-size:14px;
+    }
+
+    .branches-right{
+        grid-template-columns:1fr;
+    }
+
+    .branch-stats{
+        flex-direction:column;
+    }
+
+    .branch-card{
+        padding:25px 20px;
+    }
+
+    .branch-card h3{
+        font-size:22px;
+    }
+
+    .branch-card p{
+        font-size:14px;
+    }
+
+    .bottom-card{
+        flex-direction:column;
+        padding:24px;
+    }
+
+/* ================= ADMIN PANEL ================= */
+
+    .admin-wrapper{
+        margin:30px 12px;
+        padding:25px 15px;
+    }
+
+    .admin-title{
+        font-size:28px;
+    }
+
+    .admin-tabs{
+        flex-wrap:wrap;
+    }
+
+    .admin-form{
+        flex-direction:column;
+    }
+
+    .admin-list{
+        grid-template-columns:1fr;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media(max-width:480px){
+
+    .hero-content h1{
+        font-size:28px;
+    }
+
+    .section-title h2{
+        font-size:24px;
+    }
+
+    .product-container{
+        grid-template-columns:1fr;
+    }
+
+    .hero-overlay h1{
+        font-size:34px;
+    }
+
+    .branches-left h2{
+        font-size:26px;
+    }
+
+    .elite-container{
+        padding:0 15px;
+    }
+}
+
+
