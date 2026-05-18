@@ -9,10 +9,30 @@
         </div>
     </div>
 
-    <ul class="nav-links">
+    <!-- HAMBURGER MENU -->
+    <div class="menu-btn" id="menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About Us</a></li>
         <li><a href="/products">Products</a></li>
         <li><a href="/branches">Branches</a></li>
     </ul>
 </nav>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuBtn = document.getElementById("menu-btn");
+        const navLinks = document.getElementById("nav-links");
+
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener("click", function() {
+                navLinks.classList.toggle("nav-active");
+            });
+        }
+    });
+</script>
