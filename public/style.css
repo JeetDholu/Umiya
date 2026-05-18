@@ -1,3 +1,7 @@
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ================= GLOBAL RESETS ================= */
 *{
     margin:0;
     padding:0;
@@ -5,13 +9,23 @@
     font-family:'Poppins',sans-serif;
 }
 
-html,body{
+html, body{
+    width: 100%;
     overflow-x: hidden;
     background:#f8faf6;
     color:#111;
 }
 
-/* Navbar */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+iframe {
+    max-width: 100%;
+}
+
+/* ================= NAVBAR ================= */
 .navbar{
     width:100%;
     display:flex;
@@ -26,7 +40,6 @@ html,body{
     box-shadow:0 8px 32px rgba(0,0,0,0.08);
 }
 
-/* Logo */
 .logo-section{
     display:flex;
     align-items:center;
@@ -39,7 +52,6 @@ html,body{
     filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
 }
 
-/* 🔥 Premium Logo Text */
 .logo-text{
     display:flex;
     flex-direction:column;
@@ -61,7 +73,6 @@ html,body{
     color:#94a3b8;
 }
 
-/* Nav Links */
 .nav-links{
     display:flex;
     list-style:none;
@@ -87,13 +98,10 @@ html,body{
     transition:.4s;
 }
 
-
-
 .nav-links a:hover::after{
     width:100%;
 }
 
-/* Mobile Menu Button */
 .menu-btn {
     display: none;
     flex-direction: column;
@@ -110,654 +118,360 @@ html,body{
     transition: 0.3s;
 }
 
-/* Responsive Navbar */
-@media(max-width: 900px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-    
-    .logo-section img {
-        height: 60px;
-    }
-    
-    .logo-text .top {
-        font-size: 16px;
-    }
-    
-    .logo-text .bottom {
-        font-size: 14px;
-        letter-spacing: 2px;
-    }
-
-    .menu-btn {
-        display: flex;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 260px;
-        background: linear-gradient(135deg, #0f172a, #1e293b);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 40px;
-        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -10px 0 30px rgba(0,0,0,0.5);
-    }
-
-    .nav-links.nav-active {
-        right: 0;
-    }
-}
-
-/* ================= GOOGLE FONT ================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-body{
-    background:#f6f8f3;
-    overflow-x:hidden;
-}
-
-/* ================= HERO SECTION ================= */
-
+/* ================= HERO SECTION (HOME) ================= */
 .hero{
     height:100vh;
-
     background:
-    linear-gradient(
-    rgba(7,23,57,.78),
-    rgba(7,23,57,.78)),
-
+    linear-gradient(rgba(7,23,57,.78), rgba(7,23,57,.78)),
     url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1974&auto=format&fit=crop');
-
     background-size:cover;
     background-position:center;
-
     display:flex;
     align-items:center;
-
     padding:0 90px;
-
     position:relative;
-
     overflow:hidden;
 }
 
-/* HERO GLOW */
-
 .hero::before{
     content:"";
-
     position:absolute;
     top:-120px;
     left:-120px;
-
     width:420px;
     height:420px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(76,175,80,.18),
-    transparent 70%);
+    background:radial-gradient(circle, rgba(76,175,80,.18), transparent 70%);
 }
 
 .hero::after{
     content:"";
-
     position:absolute;
     bottom:-180px;
     right:-180px;
-
     width:420px;
     height:420px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(198,167,86,.15),
-    transparent 70%);
+    background:radial-gradient(circle, rgba(198,167,86,.15), transparent 70%);
 }
-
-/* ================= HERO CONTENT ================= */
 
 .hero-content{
     position:relative;
     z-index:2;
-
     max-width:680px;
 }
 
 .hero-content span{
     display:inline-block;
-
     padding:12px 24px;
-
     border-radius:50px;
-
     background:rgba(255,255,255,.10);
-
     border:1px solid rgba(255,255,255,.18);
-
     backdrop-filter:blur(12px);
-
     color:#d1fae5;
-
     font-size:13px;
     font-weight:600;
-
     letter-spacing:1px;
-
     margin-bottom:28px;
 }
 
 .hero-content h1{
     font-size:68px;
     line-height:1.1;
-
     color:white;
-
     font-weight:800;
-
     margin-bottom:22px;
 }
 
 .hero-content p{
     font-size:18px;
     line-height:1.9;
-
     color:#dbeafe;
-
     margin-bottom:38px;
-
     max-width:580px;
 }
-
-/* ================= BUTTONS ================= */
 
 .hero-buttons{
     display:flex;
     gap:18px;
 }
 
-.primary-btn,
-.secondary-btn{
+.primary-btn, .secondary-btn{
     padding:16px 34px;
-
     border:none;
     border-radius:60px;
-
     font-size:15px;
     font-weight:600;
-
     cursor:pointer;
-
     transition:.35s;
 }
 
-/* PRIMARY BUTTON */
-
 .primary-btn{
-    background:
-    linear-gradient(135deg,#2e7d32,#4CAF50);
-
+    background:linear-gradient(135deg,#2e7d32,#4CAF50);
     color:white;
-
-    box-shadow:
-    0 15px 30px rgba(46,125,50,.30);
+    box-shadow:0 15px 30px rgba(46,125,50,.30);
 }
 
-.primary-btn:hover{
+.primary-btn:hover, .secondary-btn:hover{
     transform:translateY(-5px);
 }
-
-/* SECONDARY BUTTON */
 
 .secondary-btn{
     background:white;
-
     color:#071739;
-
-    box-shadow:
-    0 12px 30px rgba(255,255,255,.15);
-}
-
-.secondary-btn:hover{
-    transform:translateY(-5px);
-}
-
-/* ================= PRODUCTS SECTION ================= */
-
-.products{
-    width:92%;
-
-    margin:-70px auto 90px;
-
-    display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(280px,1fr));
-
-    gap:28px;
-
-    position:relative;
-
-    z-index:5;
-}
-
-/* ================= CARD ================= */
-
-.card{
-    background:
-    linear-gradient(
-    145deg,
-    rgba(255,255,255,.96),
-    rgba(245,247,250,.96));
-
-    border-radius:32px;
-
-    padding:38px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    border:1px solid rgba(255,255,255,.30);
-
-    box-shadow:
-    0 18px 50px rgba(0,0,0,.08);
-
-    transition:.4s;
-}
-
-/* CARD GLOW */
-
-.card::before{
-    content:"";
-
-    position:absolute;
-    top:-90px;
-    right:-90px;
-
-    width:240px;
-    height:240px;
-
-    border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(76,175,80,.14),
-    transparent 70%);
-}
-
-/* HOVER */
-
-.card:hover{
-    transform:translateY(-12px);
-
-    box-shadow:
-    0 25px 60px rgba(0,0,0,.12);
-}
-
-/* ICON */
-
-.card-icon{
-    width:80px;
-    height:80px;
-
-    border-radius:24px;
-
-    background:
-    linear-gradient(135deg,#2e7d32,#4CAF50);
-
-    color:white;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-size:30px;
-
-    margin-bottom:28px;
-
-    box-shadow:
-    0 12px 30px rgba(46,125,50,.25);
-}
-
-/* TEXT */
-
-.card h2{
-    font-size:30px;
-
-    color:#071739;
-
-    margin-bottom:16px;
-}
-
-.card p{
-    font-size:15px;
-    line-height:1.9;
-
-    color:#555;
-
-    margin-bottom:24px;
-}
-
-/* TAG */
-
-.card-tag{
-    display:inline-block;
-
-    padding:10px 20px;
-
-    border-radius:40px;
-
-    background:#eef6e6;
-
-    color:#1b5e20;
-
-    font-size:12px;
-    font-weight:600;
+    box-shadow:0 12px 30px rgba(255,255,255,.15);
 }
 
 /* ================= SECTION TITLE ================= */
-
 .section-title{
     text-align:center;
-
     margin-bottom:60px;
 }
 
 .section-title h2{
     font-size:36px;
     font-weight:800;
-
     color:#071739;
-
     position:relative;
-
     display:inline-block;
-    
 }
-
-/* PREMIUM UNDERLINE */
 
 .section-title h2::after{
     content:"";
-
     position:absolute;
-
     left:50%;
     transform:translateX(-50%);
-
     bottom:-16px;
-
     width:75%;
     height:5px;
-
     border-radius:20px;
+    background:linear-gradient(90deg, #c6a756, #f5e6b8, #c6a756);
+    box-shadow:0 5px 15px rgba(198,167,86,.45);
+}
 
-    background:
-    linear-gradient(
-    90deg,
-    #c6a756,
-    #f5e6b8,
-    #c6a756);
+/* ================= PRODUCTS HOME SECTION ================= */
+.products{
+    width:92%;
+    margin:-70px auto 90px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:28px;
+    position:relative;
+    z-index:5;
+}
 
-    box-shadow:
-    0 5px 15px rgba(198,167,86,.45);
+.card{
+    background:linear-gradient(145deg, rgba(255,255,255,.96), rgba(245,247,250,.96));
+    border-radius:32px;
+    padding:38px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.30);
+    box-shadow:0 18px 50px rgba(0,0,0,.08);
+    transition:.4s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:-90px;
+    right:-90px;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(76,175,80,.14), transparent 70%);
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+}
+
+.card-icon{
+    width:80px;
+    height:80px;
+    border-radius:24px;
+    background:linear-gradient(135deg,#2e7d32,#4CAF50);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    margin-bottom:28px;
+    box-shadow:0 12px 30px rgba(46,125,50,.25);
+}
+
+.card h2{
+    font-size:30px;
+    color:#071739;
+    margin-bottom:16px;
+}
+
+.card p{
+    font-size:15px;
+    line-height:1.9;
+    color:#555;
+    margin-bottom:24px;
+}
+
+.card-tag{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:40px;
+    background:#eef6e6;
+    color:#1b5e20;
+    font-size:12px;
+    font-weight:600;
 }
 
 /* ================= PREMIUM INFO SECTION ================= */
-
 .info-section{
     width:92%;
-
     margin:100px auto;
 }
 
-/* MAIN CARD */
-
 .info-card{
     position:relative;
-
     display:flex;
     align-items:stretch;
-
     min-height:420px;
-
     overflow:hidden;
-
     border-radius:38px;
-
-    background:
-    linear-gradient(
-    145deg,
-    rgba(255,255,255,.95),
-    rgba(245,247,250,.95));
-
+    background:linear-gradient(145deg, rgba(255,255,255,.95), rgba(245,247,250,.95));
     backdrop-filter:blur(18px);
-
     border:1px solid rgba(255,255,255,.35);
-
-    box-shadow:
-    0 25px 70px rgba(15,23,42,.10),
-    inset 0 1px 0 rgba(255,255,255,.6);
+    box-shadow:0 25px 70px rgba(15,23,42,.10), inset 0 1px 0 rgba(255,255,255,.6);
 }
-
-/* PREMIUM GLOW */
 
 .info-card::before{
     content:"";
-
     position:absolute;
     top:-180px;
     right:-180px;
-
     width:420px;
     height:420px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(
-    circle,
-    rgba(198,167,86,.18),
-    transparent 70%);
+    background:radial-gradient(circle, rgba(198,167,86,.18), transparent 70%);
 }
 
 .info-card::after{
     content:"";
-
     position:absolute;
     bottom:-150px;
     left:-150px;
-
     width:340px;
     height:340px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(
-    circle,
-    rgba(46,125,50,.10),
-    transparent 70%);
+    background:radial-gradient(circle, rgba(46,125,50,.10), transparent 70%);
 }
-
-/* ================= MAP ================= */
 
 .info-map{
     width:45%;
     height: 420px;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .info-map::after{
     content:"";
-
     position:absolute;
     inset:0;
-
-    background:
-    linear-gradient(
-    to top,
-    rgba(7,23,57,.30),
-    rgba(7,23,57,.06));
+    background:linear-gradient(to top, rgba(7,23,57,.30), rgba(7,23,57,.06));
 }
 
 .info-map iframe{
     width:100%;
     height:100%;
-
     border:none;
-
     transform:scale(1.02);
-
-    filter:
-    grayscale(10%)
-    contrast(1.05)
-    saturate(1.08);
+    filter:grayscale(10%) contrast(1.05) saturate(1.08);
 }
-
-/* ================= CONTENT ================= */
 
 .info-content{
     width:55%;
-
     padding:55px 55px;
-
     position:relative;
     z-index:2;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
 }
 
-/* TAG */
-
 .since{
     width:fit-content;
-
     padding:10px 22px;
-
     border-radius:50px;
-
-    background:
-    linear-gradient(
-    135deg,
-    #c6a756,
-    #f5e6b8);
-
+    background:linear-gradient(135deg, #c6a756, #f5e6b8);
     color:#111;
-
     font-size:12px;
     font-weight:700;
-
     letter-spacing:1.5px;
-
     text-transform:uppercase;
-
     margin-bottom:28px;
-
-    box-shadow:
-    0 10px 30px rgba(198,167,86,.25);
+    box-shadow:0 10px 30px rgba(198,167,86,.25);
 }
-
-/* HEADING */
 
 .info-content h2{
     font-size:40px;
     line-height:1.15;
-
     font-weight:800;
-
     color:#071739;
-
     margin-bottom:24px;
 }
 
 .info-content p{
     font-size:16px;
     line-height:2;
-
     color:#5b6475;
-
     margin-bottom:35px;
 }
 
-/* ================= SLIDER ================= */
-
+/* ================= SLIDER SECTION ================= */
 .slider{
     width:92%;
-
     margin:0 auto 100px;
-
     overflow:hidden;
-
-    background:
-    linear-gradient(
-    145deg,
-    rgba(255,255,255,.95),
-    rgba(245,247,250,.95));
-
+    background:linear-gradient(145deg, rgba(255,255,255,.95), rgba(245,247,250,.95));
     border-radius:32px;
-
     padding:45px 20px;
-
-    box-shadow:
-    0 18px 50px rgba(0,0,0,.06);
+    box-shadow:0 18px 50px rgba(0,0,0,.06);
 }
-
-/* TRACK */
 
 .slide-track{
     display:flex;
     align-items:center;
-
     gap:50px;
-
+    width:max-content;
     animation:scroll 28s linear infinite;
 }
 
-/* LOGO */
+.slide{
+    min-width:280px;
+    background:white;
+    padding:30px;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 20px 45px rgba(0,0,0,0.12);
+    transition:.3s;
+}
+
+.slide:hover{
+    transform:translateY(-12px);
+}
 
 .logo-box{
-    width:190px;
-    height:110px;
-
+    width:150px;
+    height:150px;
     background:#fff;
-
     border-radius:24px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     padding:22px;
-
+    margin:0 auto 15px;
     border:1px solid rgba(0,0,0,.05);
-
     transition:.35s;
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.05);
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
 }
 
 .logo-box:hover{
@@ -767,488 +481,29 @@ body{
 .logo-box img{
     width:100%;
     height:100%;
-
     object-fit:contain;
 }
 
-/* ================= ANIMATION ================= */
-
-@keyframes scroll{
-
-    from{
-        transform:translateX(0);
-    }
-
-    to{
-        transform:translateX(-50%);
-    }
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1100px){
-
-    .hero{
-        padding:0 40px;
-    }
-
-    .hero-content h1{
-        font-size:52px;
-    }
-
-    .info-card{
-        flex-direction:column;
-    }
-
-    .info-map,
-    .info-content{
-        width:100%;
-
-    }
-
-    .info-map{
-        height:300px;
-        width: 100%;
-    }
-
-    .info-content{
-        padding:55px 40px;
-        width: 100%;
-    }
-
-    .info-content h2{
-        font-size:44px;
-    }
-}
-
-@media(max-width:768px){
-
-    .hero{
-        height:auto;
-
-        padding:150px 20px 100px;
-    }
-
-    .hero-content h1{
-        font-size:40px;
-    }
-
-    .hero-content p{
-        font-size:15px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-    }
-
-    .products{
-        margin-top:-40px;
-    }
-
-    .section-title h2{
-        font-size:34px;
-    }
-
-    .info-card{
-        border-radius:28px;
-    }
-
-    .info-map{
-        height:250px;
-    }
-
-    .info-content{
-        padding:35px 25px;
-    }
-
-    .info-content h2{
-        font-size:34px;
-    }
-
-    .info-content p{
-        font-size:15px;
-        line-height:1.8;
-    }
-
-    .card h2{
-        font-size:24px;
-    }
-
-    .slider{
-        padding:35px 15px;
-    }
-
-    .logo-box{
-        width:150px;
-        height:90px;
-    }
-}
- 
-
-
-
-
-/* ===== PREMIUM ADMIN PANEL ===== */
-.admin-body{
-    margin:0;
-    font-family:'Poppins',sans-serif;
-
-    background:radial-gradient(circle at top,#0f172a,#020617);
-    color:black;
-}
-
-/* WRAPPER */
-.admin-wrapper{
-    max-width:1200px;
-    margin:60px auto;
-    padding:40px;
-
-    border-radius:30px;
-    background:rgba(255,255,255,0.03);
-    backdrop-filter:blur(25px);
-
-    box-shadow:0 40px 100px rgba(0,0,0,0.6);
-}
-
-/* TITLE */
-.admin-title{
-    text-align:center;
-    font-size:36px;
-    margin-bottom:30px;
-
-    background:linear-gradient(90deg,#38bdf8,#22c55e,#eab308);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-/* ===== TABS ===== */
-.admin-tabs{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    margin-bottom:40px;
-}
-
-.tab-btn{
-    padding:12px 30px;
-    border-radius:30px;
-    border:none;
-
-    background:rgba(255,255,255,0.05);
-    color:#ccc;
-
-    cursor:pointer;
-    transition:.3s;
-}
-
-.tab-btn.active{
-    background:linear-gradient(135deg,#22c55e,#38bdf8);
-    color:#fff;
-}
-
-.tab-btn:hover{
-    transform:translateY(-2px);
-}
-
-/* TAB CONTENT */
-.tab-content{
-    display:none;
-}
-.tab-content.active{
-    display:block;
-}
-
-/* ===== FORM ===== */
-.admin-form{
-    display:flex;
-    gap:15px;
-    margin-bottom:40px;
-}
-
-.admin-form input,
-.admin-form select{
-    flex:1;
-    padding:14px;
-
-    border:none;
-    border-radius:12px;
-
-    background:rgba(255,255,255,0.06);
-    color:grey;
-
-    outline:white;
-}
-
-/* BUTTON */
-.admin-form button{
-    padding:14px 25px;
-
-    border:none;
-    border-radius:12px;
-
-    background:linear-gradient(135deg,#22c55e,#38bdf8);
-    color:white;
-
-    cursor:pointer;
-    transition:.3s;
-
-    box-shadow:0 10px 30px rgba(34,197,94,0.4);
-}
-
-.admin-form button:hover{
-    transform:translateY(-4px);
-}
-
-/* ===== GRID ===== */
-.admin-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:25px;
-}
-
-/* CARD */
-.admin-card{
-    background:#ffffff;
-    border-radius:20px;
-
-    padding:25px;
-    text-align:center;
-
-    backdrop-filter:blur(20px);
-
-    box-shadow:0 20px 50px rgba(0,0,0,0.4);
-
-    transition:.4s;
-}
-
-.admin-card:hover{
-    transform:translateY(-10px) scale(1.03);
-}
-
-/* IMAGE */
-.admin-card img{
-    width:100px;
-    height:100px;
-    object-fit:contain;
-    margin-bottom:15px;
-}
-
-/* NAME */
-.admin-card p{
-    font-weight:600;
-    margin-bottom:10px;
-}
-
-/* DELETE */
-.delete-btn{
-    display:inline-block;
-    padding:6px 14px;
-
-    border-radius:8px;
-    background:#ef4444;
-    color:#fff;
-
-    text-decoration:none;
-    font-size:12px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-    .admin-form{
-        flex-direction:column;
-    }
-}
-
-
-
-
-/* SLIDER */
-.slider{
-    overflow:hidden;
-    padding:40px 100px;
-   
-}
-
-/* TRACK */
-.slide-track{
-    display:flex;
-    width:max-content; /* 🔥 important */
-    animation:scroll 25s linear infinite;
-}
-
-/* BIG PREMIUM CARD */
-.slide{
-    min-width:280px;   /* 🔥 bigger */
-    margin-right:40px;
-
-    background:white;
-    padding:30px;
-    border-radius:22px;
-
-    text-align:center;
-    box-shadow:0 20px 45px rgba(0,0,0,0.12);
-
-    transition:.3s;
-}
-
-.slide:hover{
-    transform:translateY(-12px);
-}
-
-/* IMAGE */
-.slide img{
-     width:100%;
-    height:100%;
-    object-fit:contain;
-}
-
-.logo-box{
-    width:150px;
-    height:150px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    margin:0 auto 15px;
-}
-
-/* TEXT */
 .slide p{
     font-size:17px;
     font-weight:600;
     color:#111;
 }
 
-/* SMOOTH INFINITE ANIMATION */
 @keyframes scroll{
-    0%{
-        transform:translateX(0);
-    }
-    100%{
-        transform:translateX(-50%);
-    }
+    0%{ transform:translateX(0); }
+    100%{ transform:translateX(-50%); }
 }
 
-
-
-
-/* ===== ELITE PREMIUM FOOTER ===== */
-.elite-footer{
-    position:relative;
-    margin-top:120px;
-    padding:80px 0 20px;
-
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    color:#fff;
-    overflow:hidden;
-}
-
-/* GLOW BACKGROUND */
-.elite-footer::before{
-    content:'';
-    position:absolute;
-    top:-100px;
-    left:50%;
-    transform:translateX(-50%);
-
-    width:600px;
-    height:300px;
-
-    background:radial-gradient(circle,rgba(56,189,248,0.25),transparent);
-    filter:blur(100px);
-}
-
-/* CONTAINER */
-.elite-container{
-    display:flex;
-    justify-content:space-between;
-    gap:60px;
-
-    padding:0 120px;
-    position:relative;
-    z-index:2;
-}
-
-/* BRAND */
-.elite-brand h2{
-    font-size:28px;
-    font-weight:800;
-
-    background:linear-gradient(90deg,#38bdf8,#22c55e);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
-
-.elite-brand span{
-    letter-spacing:6px;
-    font-size:24px;
-    color:#94a3b8;
-}
-
-.elite-brand p{
-    margin-top:15px;
-    max-width:320px;
-    color:#cbd5f5;
-    line-height:1.7;
-}
-
-/* CONTACT + LOCATION */
-.elite-contact h3,
-.elite-location h3{
-    margin-bottom:12px;
-    font-size:18px;
-}
-
-.elite-contact p,
-.elite-location p{
-    margin-bottom:8px;
-    color:#cbd5f5;
-    transition:.3s;
-}
-
-/* HOVER EFFECT */
-.elite-contact p:hover,
-.elite-location p:hover{
-    color:#38bdf8;
-    transform:translateX(5px);
-}
-
-/* BOTTOM */
-.elite-bottom{
-    text-align:center;
-    margin-top:50px;
-    padding-top:15px;
-    font-size:13px;
-    color:#94a3b8;
-
-    border-top:1px solid rgba(255,255,255,0.1);
-}
-
-/* MOBILE */
-@media(max-width:900px){
-    .elite-container{
-        flex-direction:column;
-        padding:0 30px;
-    }
-}
-
-
-
-/* ================= PRODUCTS PAGE ================= */
-
+/* ================= PRODUCT PAGE (CATALOG) ================= */
 .product-page{
     display:flex;
     gap:25px;
-
     padding:30px 60px 60px;
-
     background:#f8faf6;
-
     min-height:100vh;
 }
 
-/* TITLE */
 .product-title{
     text-align:center;
     margin-top:140px;
@@ -1256,8 +511,6 @@ body{
 }
 
 .product-title h1{
-    
-  
     font-size:36px;
     font-weight:750;
     color:#0f172a;
@@ -1265,42 +518,27 @@ body{
     display:inline-block;
 }
 
-/* GOLD LINE */
 .product-title h1::after{
     content:'';
     position:absolute;
-
     left:50%;
     transform:translateX(-50%);
     bottom:-10px;
-
     width:65%;
     height:3px;
-
     border-radius:10px;
-
-    background:
-    linear-gradient(90deg,#c6a756,#f5deb3,#c6a756);
+    background:linear-gradient(90deg,#c6a756,#f5deb3,#c6a756);
 }
 
-/* ================= SIDEBAR ================= */
-
+/* SIDEBAR */
 .sidebar{
     width:220px;
-
     background:rgba(255,255,255,0.75);
-
     backdrop-filter:blur(14px);
-
     border-radius:22px;
-
     padding:20px;
-
     height:fit-content;
-
-    box-shadow:
-    0 8px 25px rgba(0,0,0,0.06);
-
+    box-shadow:0 8px 25px rgba(0,0,0,0.06);
     position:sticky;
     top:110px;
 }
@@ -1310,95 +548,78 @@ body{
     margin-bottom:18px;
 }
 
-/* FILTER BUTTON */
 .filter-btn{
     display:block;
-
     padding:10px 14px;
     margin-bottom:8px;
-
     border-radius:10px;
-
     text-decoration:none;
-
     color:#374151;
     font-size:14px;
     font-weight:500;
-
-    transition:.3s;
+    position:relative;
+    overflow:hidden;
+    transition: background .35s ease, color .35s ease, transform .25s ease, box-shadow .35s ease;
+    border:1px solid transparent;
 }
 
-/* HOVER */
 .filter-btn:hover{
-    background:
-    linear-gradient(135deg,#0f172a,#1e293b);
-
+    background:linear-gradient(135deg,#0f172a,#1e293b);
     color:white;
-
     transform:translateX(4px);
+    box-shadow:0 10px 25px rgba(15,23,42,.18);
 }
 
-/* ACTIVE */
 .filter-btn.active{
-    background:
-    linear-gradient(135deg,#2f3d4b,#1b1949);
-
-    color:white;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:#fff;
+    border-color:rgba(255,255,255,.08);
+    box-shadow:0 10px 25px rgba(15,23,42,.18), inset 0 1px 0 rgba(255,255,255,.05);
 }
 
-/* ================= PRODUCT GRID ================= */
+.filter-btn::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:100%;
+    height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.18), transparent);
+    transition:.6s;
+}
 
+.filter-btn:hover::before{
+    left:120%;
+}
+
+/* PRODUCT GRID */
 .product-container{
     flex:1;
-
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(220px,1fr));
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:18px;
-
     align-content:start;
 }
-
-/* ================= CARD ================= */
 
 .product-card{
     position:relative;
     overflow:hidden;
-
     background:white;
-
     border-radius:18px;
-
     height:210px;
-    
     padding:18px;
-
     display:flex;
     flex-direction:column;
     justify-content:space-between;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,0.08);
-
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
     transition:.3s;
-
-  
 }
 
-/* LIGHT GLOW */
 .product-card::before{
     content:'';
-
     position:absolute;
     inset:0;
-
-    background:
-    radial-gradient(circle at top right,
-    rgba(198,167,86,0.10),
-    transparent 60%);
-
+    background:radial-gradient(circle at top right, rgba(198,167,86,0.10), transparent 60%);
     z-index:0;
 }
 
@@ -1407,155 +628,51 @@ body{
     z-index:2;
 }
 
-/* HOVER */
 .product-card:hover{
     transform:translateY(-6px);
-
-    box-shadow:
-    0 14px 30px rgba(0,0,0,0.10);
+    box-shadow:0 14px 30px rgba(0,0,0,0.10);
 }
 
-/* IMAGE BOX */
 .img-box{
     width:100%;
     height:120px;
-
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
-/* IMAGE */
 .img-box img{
     max-width:100%;
     max-height:100%;
     object-fit:contain;
+    transition:.3s;
 }
 
-/* IMAGE HOVER */
 .product-card:hover img{
     transform:scale(1.04);
 }
 
-/* PRODUCT NAME */
 .product-card h4{
     font-size:14px;
     font-weight:600;
-
     text-align:center;
-
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
-
     color:#111827;
 }
 
-/* NO DATA */
 .no-data{
     font-size:18px;
     color:#666;
 }
 
-/* MOBILE */
-@media(max-width:900px){
-
-    .product-page{
-        flex-direction:column;
-        padding:20px;
-    }
-
-    .sidebar{
-        width:100%;
-        position:relative;
-        top:0;
-    }
-
-    .product-container{
-        grid-template-columns:
-        repeat(auto-fill,minmax(160px,1fr));
-    }
-
-}
-
-
-
-/* FILTER BUTTON SMOOTH */
-.filter-btn{
-    position:relative;
-    overflow:hidden;
-
-    transition:
-    background .35s ease,
-    color .35s ease,
-    transform .25s ease,
-    box-shadow .35s ease;
-
-    border:1px solid transparent;
-}
-
-/* PREMIUM HOVER */
-.filter-btn:hover{
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    color:#fff;
-
-    transform:translateX(4px);
-
-    box-shadow:0 10px 25px rgba(15,23,42,.18);
-}
-
-/* ACTIVE BUTTON */
-.filter-btn.active{
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    color:#fff;
-
-    border-color:rgba(255,255,255,.08);
-
-    box-shadow:
-    0 10px 25px rgba(15,23,42,.18),
-    inset 0 1px 0 rgba(255,255,255,.05);
-}
-
-/* CLICK EFFECT */
-.filter-btn::before{
-    content:'';
-
-    position:absolute;
-    top:0;
-    left:-120%;
-
-    width:100%;
-    height:100%;
-
-    background:linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.18),
-        transparent
-    );
-
-    transition:.6s;
-}
-
-.filter-btn:hover::before{
-    left:120%;
-}
-
-
-
-
-/* ================= ABOUT HERO ================= */
-
+/* ================= ABOUT US PAGE ================= */
 .about-hero{
     width:100%;
     height:260px;
     padding-top:33px;
-    background: #f8faf6;;
-    
-    
-    background-size:cover;
-    background-position:center;
-
+    background: #f8faf6;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -1580,32 +697,20 @@ body{
     border-radius:20px;
 }
 
-/* ================= ABOUT WRAPPER ================= */
-
 .about-wrapper{
     width:90%;
     margin:-30px auto 50px;
-
-    background:
-    linear-gradient(rgba(214, 214, 171, 0.96),
-    rgba(201, 201, 137, 0.96)),
-
+    background:linear-gradient(rgba(214, 214, 171, 0.96), rgba(201, 201, 137, 0.96)),
     url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=2070&auto=format&fit=crop');
-
     background-size:cover;
     background-position:center;
     background-repeat:no-repeat;
-
     border-radius:30px;
     padding:35px;
-
     display:flex;
     gap:35px;
-
     box-shadow:0 10px 35px rgba(0,0,0,.08);
 }
-
-/* ================= LEFT ================= */
 
 .about-left{
     flex:1.4;
@@ -1615,16 +720,12 @@ body{
     display:inline-flex;
     align-items:center;
     gap:10px;
-
     background:#2e7d32;
     color:white;
-
     padding:10px 18px;
     border-radius:40px;
-
     font-size:13px;
     font-weight:600;
-
     margin-bottom:25px;
 }
 
@@ -1643,16 +744,10 @@ body{
     margin-bottom:18px;
 }
 
-.about-left strong{
-    color:#1b5e20;
-}
-
-.experience-text span{
+.about-left strong, .experience-text span{
     color:#1b5e20;
     font-weight:700;
 }
-
-/* ================= STATS ================= */
 
 .stats-row{
     display:flex;
@@ -1664,16 +759,11 @@ body{
 .stat-card{
     flex:1;
     min-width:170px;
-
-    background:
-    linear-gradient(135deg,#2e7d32,#1b5e20);
-
+    background:linear-gradient(135deg,#2e7d32,#1b5e20);
     padding:22px;
     border-radius:22px;
-
     color:white;
     text-align:center;
-
     transition:.4s;
 }
 
@@ -1696,8 +786,6 @@ body{
     color:#f1f1f1;
 }
 
-/* ================= RIGHT ================= */
-
 .about-right{
     flex:1;
     display:flex;
@@ -1706,15 +794,10 @@ body{
 }
 
 .about-box{
-    background:
-    linear-gradient(135deg,#06203d,#04142a);
-
+    background:linear-gradient(135deg,#06203d,#04142a);
     color:white;
-
     padding:30px;
-
     border-radius:28px;
-
     position:relative;
     overflow:hidden;
 }
@@ -1722,14 +805,10 @@ body{
 .about-box::before{
     content:"";
     position:absolute;
-
     width:220px;
     height:220px;
-
     border:2px solid rgba(255,255,255,.04);
-
     border-radius:50%;
-
     top:-80px;
     right:-80px;
 }
@@ -1744,17 +823,12 @@ body{
 .box-title i{
     width:55px;
     height:55px;
-
     background:#2e7d32;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     border-radius:50%;
-
     font-size:22px;
-
     flex-shrink:0;
 }
 
@@ -1781,223 +855,87 @@ body{
     font-weight:bold;
 }
 
-/* ================= BOTTOM ================= */
-
 .about-bottom{
     width:90%;
     margin:0 auto 70px;
-
     display:flex;
     gap:25px;
 }
 
-.bottom-left,
-.bottom-right{
+.bottom-left, .bottom-right{
     flex:1;
-
     background:#f3f7ea;
-
     padding:25px;
-
     border-radius:22px;
-
     display:flex;
     align-items:flex-start;
     gap:18px;
-
     border:2px solid #d8e7c9;
 }
 
-/* FIX ICONS */
-
-.bottom-left i,
-.bottom-right i{
-    min-width:60px;
-    min-height:60px;
-
+.bottom-left i, .bottom-right i{
     width:60px;
     height:60px;
-
+    min-width:60px;
+    min-height:60px;
     border-radius:50%;
-
     background:#2e7d32;
     color:white;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:24px;
-
     flex-shrink:0;
 }
 
-.bottom-left p,
-.bottom-right p{
+.bottom-left p, .bottom-right p{
     font-size:16px;
     line-height:1.7;
     color:#333;
 }
 
-.bottom-left span{
-    color:#1b5e20;
-    font-weight:700;
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1100px){
-
-    .about-wrapper{
-        flex-direction:column;
-    }
-
-    .about-bottom{
-        flex-direction:column;
-    }
-}
-
-@media(max-width:768px){
-
-    .about-hero{
-        height:220px;
-    }
-
-    .about-overlay h1{
-        font-size:38px;
-    }
-
-    .about-wrapper{
-        width:95%;
-        padding:25px;
-    }
-
-    .about-left h2{
-        font-size:30px;
-    }
-
-    .about-left p{
-        font-size:15px;
-    }
-
-    .about-box{
-        padding:22px;
-    }
-
-    .box-title h3{
-        font-size:22px;
-    }
-
-    .about-box ul li{
-        font-size:15px;
-    }
-
-    .stats-row{
-        flex-direction:column;
-    }
-
-    .bottom-left,
-    .bottom-right{
-        padding:20px;
-    }
-
-    .bottom-left i,
-    .bottom-right i{
-        width:50px;
-        height:50px;
-        min-width:50px;
-        min-height:50px;
-
-        font-size:20px;
-    }
-
-    .bottom-left p,
-    .bottom-right p{
-        font-size:14px;
-    }
-}
-
-
-
-
-
-
-
-
-/* ================= BRANCHES SECTION ================= */
-
+/* ================= BRANCHES PAGE ================= */
 .branches-section{
     width:100%;
-    background:
-    linear-gradient(180deg,#f8faf6,#eef5e9);
-
+    background:linear-gradient(180deg,#f8faf6,#eef5e9);
     padding-bottom:210px;
     margin-bottom:-120px;
     overflow:hidden;
 }
 
-/* ================= HERO ================= */
-
 .branches-hero{
     width:100%;
     height:360px;
-
     position:relative;
-
-    background:
-    linear-gradient(rgba(255,255,255,.72),
-    rgba(255,255,255,.72)),
-
+    background:linear-gradient(rgba(255,255,255,.72), rgba(255,255,255,.72)),
     url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?q=80&w=1974&auto=format&fit=crop');
-
     background-size:cover;
     background-position:center;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     overflow:hidden;
 }
 
-/* PREMIUM BLUR CIRCLE */
-
 .branches-hero::before{
     content:'';
-
     position:absolute;
-
     width:450px;
     height:450px;
-
-    background:
-    radial-gradient(circle,
-    rgba(76,175,80,.18),
-    transparent 70%);
-
+    background:radial-gradient(circle, rgba(76,175,80,.18), transparent 70%);
     top:-180px;
     right:-100px;
 }
-
-/* LEAF EFFECT */
 
 .leaf{
     position:absolute;
     left:-60px;
     top:-40px;
-
     width:320px;
     height:320px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(76,175,80,.16),
-    transparent 70%);
+    background:radial-gradient(circle, rgba(76,175,80,.16), transparent 70%);
 }
-
-/* HERO TEXT */
 
 .hero-overlay{
     text-align:center;
@@ -2014,121 +952,73 @@ body{
 .hero-line{
     width:190px;
     height:5px;
-
     margin:15px auto;
-
     border-radius:20px;
-
-    background:
-    linear-gradient(90deg,#2e7d32,#4CAF50,#8bc34a);
+    background:linear-gradient(90deg,#2e7d32,#4CAF50,#8bc34a);
 }
-
-/* ================= MAIN WRAPPER ================= */
 
 .branches-wrapper{
     width:92%;
     margin:-70px auto 50px;
-
-    background:
-    rgba(255,255,255,.72);
-
+    background:rgba(255,255,255,.72);
     backdrop-filter:blur(18px);
-
     border:1px solid rgba(255,255,255,.5);
-
     border-radius:38px;
-
     padding:45px;
-
     display:flex;
     gap:40px;
-
-    box-shadow:
-    0 20px 50px rgba(0,0,0,.08);
-
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
     position:relative;
     z-index:5;
 }
-
-/* ================= LEFT ================= */
 
 .branches-left{
     width:38%;
 }
 
-/* BADGE */
-
 .branch-badge{
     display:inline-flex;
     align-items:center;
     gap:12px;
-
     padding:12px 20px;
-
     border-radius:50px;
-
-    background:
-    linear-gradient(135deg,#2e7d32,#14532d);
-
+    background:linear-gradient(135deg,#2e7d32,#14532d);
     color:white;
-
     font-size:14px;
     font-weight:600;
-
     margin-bottom:28px;
-
-    box-shadow:
-    0 10px 25px rgba(46,125,50,.25);
+    box-shadow:0 10px 25px rgba(46,125,50,.25);
 }
-
-/* HEADING */
 
 .branches-left h2{
     font-size:56px;
     line-height:1.15;
-
     color:#071739;
-
     margin-bottom:28px;
 }
-
-/* TEXT */
 
 .branches-left p{
     font-size:18px;
     line-height:1.9;
-
     color:#475569;
-
     margin-bottom:22px;
 }
-
-/* ================= STATS ================= */
 
 .branch-stats{
     display:flex;
     gap:18px;
-
     margin-top:35px;
     margin-bottom:45px;
 }
 
 .stat-box{
     flex:1;
-
     background:white;
-
     border-radius:24px;
-
     padding:25px 18px;
-
     text-align:center;
-
     border:1px solid rgba(0,0,0,.05);
-
-    box-shadow:
-    0 10px 25px rgba(0,0,0,.05);
-
+    box-shadow:0 10px 25px rgba(0,0,0,.05);
     transition:.4s;
 }
 
@@ -2136,30 +1026,19 @@ body{
     transform:translateY(-8px);
 }
 
-/* ICON */
-
 .stat-box i{
     width:68px;
     height:68px;
-
     margin:auto;
     margin-bottom:16px;
-
     border-radius:50%;
-
-    background:
-    linear-gradient(135deg,#2e7d32,#4CAF50);
-
+    background:linear-gradient(135deg,#2e7d32,#4CAF50);
     color:white;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:26px;
-
-    box-shadow:
-    0 10px 25px rgba(76,175,80,.25);
+    box-shadow:0 10px 25px rgba(76,175,80,.25);
 }
 
 .stat-box h3{
@@ -2173,69 +1052,39 @@ body{
     color:#475569;
 }
 
-/* ================= OFFICE BOX ================= */
-
 .office-box{
     position:relative;
-
-    background:
-    linear-gradient(135deg,#071739,#0b2447);
-
+    background:linear-gradient(135deg,#071739,#0b2447);
     border-radius:35px;
-
     padding:45px 35px;
-
     overflow:hidden;
-
     text-align:center;
-
     color:white;
-
-    box-shadow:
-    0 20px 40px rgba(0,0,0,.18);
+    box-shadow:0 20px 40px rgba(0,0,0,.18);
 }
-
-/* GLOW */
 
 .office-glow{
     position:absolute;
-
     width:280px;
     height:280px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(76,175,80,.22),
-    transparent 70%);
-
+    background:radial-gradient(circle, rgba(76,175,80,.22), transparent 70%);
     top:-100px;
     right:-100px;
 }
 
-/* LOGO */
-
 .office-logo{
     width:95px;
     height:95px;
-
     margin:auto;
     margin-bottom:25px;
-
     border-radius:50%;
-
-    background:
-    linear-gradient(135deg,#2e7d32,#4CAF50);
-
+    background:linear-gradient(135deg,#2e7d32,#4CAF50);
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:38px;
-
-    box-shadow:
-    0 12px 30px rgba(76,175,80,.35);
+    box-shadow:0 12px 30px rgba(76,175,80,.35);
 }
 
 .office-box h3{
@@ -2249,215 +1098,124 @@ body{
     color:#dbeafe;
 }
 
-/* ================= RIGHT GRID ================= */
-
 .branches-right{
     flex:1;
-
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
-
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
     gap:25px;
 }
 
-/* ================= PREMIUM CARD ================= */
-
 .branch-card{
     position:relative;
-
-    background:
-    rgba(255,255,255,.92);
-
+    background:rgba(255,255,255,.92);
     backdrop-filter:blur(14px);
-
     border-radius:35px;
-
     padding:38px 28px;
-
     text-align:center;
-
     overflow:hidden;
-
     border:1px solid rgba(255,255,255,.6);
-
-    box-shadow:
-    0 12px 30px rgba(0,0,0,.06);
-
+    box-shadow:0 12px 30px rgba(0,0,0,.06);
     transition:.45s;
 }
 
-/* GLOW */
-
 .branch-card::before{
     content:'';
-
     position:absolute;
-
     width:220px;
     height:220px;
-
     border-radius:50%;
-
-    background:
-    radial-gradient(circle,
-    rgba(76,175,80,.12),
-    transparent 70%);
-
+    background:radial-gradient(circle, rgba(76,175,80,.12), transparent 70%);
     top:-100px;
     right:-80px;
 }
 
-/* HOVER */
-
 .branch-card:hover{
-    transform:
-    translateY(-12px)
-    scale(1.02);
-
-    box-shadow:
-    0 22px 45px rgba(0,0,0,.12);
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 22px 45px rgba(0,0,0,.12);
 }
-
-/* ICON */
 
 .branch-icon{
     width:92px;
     height:92px;
-
     margin:auto;
     margin-bottom:22px;
-
     border-radius:50%;
-
-    background:
-    linear-gradient(135deg,#2e7d32,#4CAF50);
-
+    background:linear-gradient(135deg,#2e7d32,#4CAF50);
     display:flex;
     align-items:center;
     justify-content:center;
-
     color:white;
     font-size:38px;
-
-    box-shadow:
-    0 14px 30px rgba(76,175,80,.30);
+    box-shadow:0 14px 30px rgba(76,175,80,.30);
 }
-
-/* TAG */
 
 .branch-tag{
     display:inline-block;
-
     padding:9px 20px;
-
     border-radius:40px;
-
     background:#eef6e6;
-
     color:#1b5e20;
-
     font-size:13px;
     font-weight:700;
-
     margin-bottom:22px;
 }
-
-/* TITLE */
 
 .branch-card h3{
     font-size:32px;
     color:#071739;
-
     margin-bottom:18px;
 }
-
-/* ADDRESS */
 
 .branch-card p{
     font-size:17px;
     color:#475569;
-
     line-height:1.9;
-
     margin-bottom:22px;
 }
-
-/* PHONE */
 
 .branch-phone{
     display:flex;
     align-items:center;
     justify-content:center;
     gap:10px;
-
     color:#1b5e20;
-
     font-size:17px;
     font-weight:700;
 }
 
-/* ================= BOTTOM ================= */
-
 .branches-bottom{
     width:92%;
     margin:auto;
-
     display:flex;
     gap:25px;
 }
 
-/* CARD */
-
 .bottom-card{
     flex:1;
-
-    background:
-    rgba(255,255,255,.72);
-
+    background:rgba(255,255,255,.72);
     backdrop-filter:blur(12px);
-
     border:1px solid rgba(255,255,255,.5);
-
     border-radius:30px;
-
     padding:35px;
-
     display:flex;
     align-items:flex-start;
     gap:22px;
-
-    box-shadow:
-    0 12px 30px rgba(0,0,0,.05);
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
 }
-
-/* ICON */
 
 .bottom-card i{
     width:75px;
     height:75px;
-
     min-width:75px;
-
     border-radius:50%;
-
-    background:
-    linear-gradient(135deg,#2e7d32,#4CAF50);
-
+    background:linear-gradient(135deg,#2e7d32,#4CAF50);
     color:white;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     font-size:30px;
-
-    box-shadow:
-    0 10px 25px rgba(76,175,80,.25);
+    box-shadow:0 10px 25px rgba(76,175,80,.25);
 }
-
-/* TEXT */
 
 .bottom-card p{
     font-size:17px;
@@ -2465,167 +1223,217 @@ body{
     color:#334155;
 }
 
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1100px){
-
-    .branches-wrapper{
-        flex-direction:column;
-    }
-
-    .branches-left{
-        width:100%;
-    }
-
-    .branches-bottom{
-        flex-direction:column;
-    }
+/* ================= ADMIN PANEL ================= */
+.admin-body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:radial-gradient(circle at top,#0f172a,#020617);
+    color:black;
 }
 
-@media(max-width:768px){
-
-    .branches-hero{
-        height:280px;
-    }
-
-    .hero-overlay h1{
-        font-size:48px;
-    }
-
-    .branches-wrapper{
-        width:95%;
-        padding:25px;
-    }
-
-    .branches-left h2{
-        font-size:38px;
-    }
-
-    .branch-stats{
-        flex-direction:column;
-    }
-
-    .branches-right{
-        grid-template-columns:1fr;
-    }
-
-    .branch-card h3{
-        font-size:25px;
-    }
-
-    .bottom-card{
-        flex-direction:column;
-    }
+.admin-wrapper{
+    max-width:1200px;
+    margin:60px auto;
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.03);
+    backdrop-filter:blur(25px);
+    box-shadow:0 40px 100px rgba(0,0,0,0.6);
 }
 
-/* ================= LEFT TITLE ================= */
-@media(max-width:900px){
-    .branches-left h2{
-        font-size:42px;   /* pehle 56px tha */
-        line-height:1.25;
+.admin-title{
+    text-align:center;
+    font-size:36px;
+    margin-bottom:30px;
+    background:linear-gradient(90deg,#38bdf8,#22c55e,#eab308);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-        color:#071739;
+.admin-tabs{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-bottom:40px;
+}
 
-        margin-bottom:22px;
-    }
+.tab-btn{
+    padding:12px 30px;
+    border-radius:30px;
+    border:none;
+    background:rgba(255,255,255,0.05);
+    color:#ccc;
+    cursor:pointer;
+    transition:.3s;
+}
 
-    /* TEXT */
+.tab-btn.active{
+    background:linear-gradient(135deg,#22c55e,#38bdf8);
+    color:#fff;
+}
 
-    .branches-left p{
-        font-size:15px;   /* pehle 18px */
-        line-height:1.8;
+.tab-btn:hover{
+    transform:translateY(-2px);
+}
 
-        color:#475569;
+.tab-content{
+    display:none;
+}
+.tab-content.active{
+    display:block;
+}
 
-        margin-bottom:20px;
-    }
+.admin-form{
+    display:flex;
+    gap:15px;
+    margin-bottom:40px;
+}
 
-    /* HERO TITLE */
+.admin-form input, .admin-form select{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:rgba(255,255,255,0.06);
+    color:grey;
+    outline:white;
+}
 
-    .hero-overlay h1{
-        font-size:58px;   /* pehle 82px */
-        color:#071739;
-        font-weight:800;
-    }
+.admin-form button{
+    padding:14px 25px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#22c55e,#38bdf8);
+    color:white;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(34,197,94,0.4);
+}
 
-    /* ================= CARD ================= */
+.admin-form button:hover{
+    transform:translateY(-4px);
+}
 
-    .branch-card{
-        padding:28px 22px;   /* thoda compact */
-    }
+.admin-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:25px;
+}
 
-    /* CARD TITLE */
+.admin-card{
+    background:#ffffff;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    backdrop-filter:blur(20px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.4);
+    transition:.4s;
+}
 
-    .branch-card h3{
-        font-size:21px;   /* pehle 32px */
-        color:#071739;
+.admin-card:hover{
+    transform:translateY(-10px) scale(1.03);
+}
 
-        margin-bottom:10px;
-    }
+.admin-card img{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
 
-    /* ADDRESS */
+.admin-card p{
+    font-weight:600;
+    margin-bottom:10px;
+}
 
-    .branch-card p{
-        font-size:14px;   /* pehle 17px */
-        color:#475569;
+.delete-btn{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:8px;
+    background:#ef4444;
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+}
 
-        line-height:1.7;
+/* ================= ELITE FOOTER ================= */
+.elite-footer{
+    position:relative;
+    margin-top:120px;
+    padding:80px 0 20px;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    color:#fff;
+    overflow:hidden;
+}
 
-        margin-bottom:18px;
-    }
+.elite-footer::before{
+    content:'';
+    position:absolute;
+    top:-100px;
+    left:50%;
+    transform:translateX(-50%);
+    width:600px;
+    height:300px;
+    background:radial-gradient(circle,rgba(56,189,248,0.25),transparent);
+    filter:blur(100px);
+}
 
-    /* PHONE */
+.elite-container{
+    display:flex;
+    justify-content:space-between;
+    gap:60px;
+    padding:0 120px;
+    position:relative;
+    z-index:2;
+}
 
-    .branch-phone{
-        font-size:14px;
-    }
+.elite-brand h2{
+    font-size:28px;
+    font-weight:800;
+    background:linear-gradient(90deg,#38bdf8,#22c55e);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-    /* TAG */
+.elite-brand span{
+    letter-spacing:6px;
+    font-size:24px;
+    color:#94a3b8;
+}
 
-    .branch-tag{
-        font-size:11px;
-        padding:7px 16px;
-    }
+.elite-brand p{
+    margin-top:15px;
+    max-width:320px;
+    color:#cbd5f5;
+    line-height:1.7;
+}
 
-    /* ICON */
+.elite-contact h3, .elite-location h3{
+    margin-bottom:12px;
+    font-size:18px;
+}
 
-    .branch-icon{
-        width:72px;
-        height:72px;
+.elite-contact p, .elite-location p{
+    margin-bottom:8px;
+    color:#cbd5f5;
+    transition:.3s;
+}
 
-        font-size:28px;
-    }
+.elite-contact p:hover, .elite-location p:hover{
+    color:#38bdf8;
+    transform:translateX(5px);
+}
 
-    /* OFFICE BOX */
-
-    .office-box h3{
-        font-size:24px;
-    }
-
-    .office-box p{
-        font-size:14px;
-    }
-
-    /* STATS */
-
-    .stat-box h3{
-        font-size:28px;
-    }
-
-    .stat-box span{
-        font-size:12px;
-    }
-
-    /* BOTTOM TEXT */
-
-    .bottom-card p{
-        font-size:14px;
-        line-height:1.8;
-    }
+.elite-bottom{
+    text-align:center;
+    margin-top:50px;
+    padding-top:15px;
+    font-size:13px;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,0.1);
 }
 
 /* ================= MODERN SCROLL ANIMATIONS ================= */
-
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(40px);
@@ -2641,1596 +1449,158 @@ body{
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }
-# Complete Responsive CSS Structure
-
-Tumhara CSS bahut bada hai aur usme duplicate sections bhi hain.
-
-Best solution:
-
-* Existing desktop design same rahe
-* Sirf responsive fixes END me add karo
-* Purana code delete mat karo
-
-Neeche final optimized responsive block diya hai. Isko bas current `style.css` ke bilkul END me paste karo.
-
-```css
-
-html,body{
-    width:100%;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-iframe{
-    max-width:100%;
-}
-
-/* ================= MOBILE NAVBAR ================= */
-
-@media(max-width:768px){
-
-    .navbar{
-        padding:10px 15px;
-    }
-
-    .logo-section img{
-        height:52px;
-    }
-
-    .logo-text .top{
-        font-size:14px;
-    }
-
-    .logo-text .bottom{
-        font-size:11px;
-        letter-spacing:1px;
-    }
-
-    .nav-links{
-        width:240px;
-    }
-
-    .menu-btn{
-        display:flex;
-    }
-
-/* ================= HERO ================= */
-
-    .hero{
-        height:auto;
-        padding:130px 18px 80px;
-        text-align:center;
-        justify-content:center;
-    }
-
-    .hero-content{
-        max-width:100%;
-    }
-
-    .hero-content h1{
-        font-size:34px;
-        line-height:1.25;
-    }
-
-    .hero-content p{
-        font-size:14px;
-        line-height:1.8;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-        width:100%;
-    }
-
-/* ================= PRODUCTS ================= */
-
-    .products{
-        width:94%;
-        grid-template-columns:1fr;
-        margin-top:-20px;
-    }
-
-    .card{
-        padding:28px 22px;
-        border-radius:24px;
-    }
-
-    .card h2{
-        font-size:24px;
-    }
-
-    .card p{
-        font-size:14px;
-    }
-
-/* ================= SECTION TITLE ================= */
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-/* ================= INFO SECTION ================= */
-
-    .info-card{
-        flex-direction:column;
-    }
-
-    .info-map,
-    .info-content{
-        width:100%;
-    }
-
-    .info-map{
-        height:220px;
-    }
-
-    .info-content{
-        padding:30px 20px;
-    }
-
-    .info-content h2{
-        font-size:28px;
-    }
-
-    .info-content p{
-        font-size:14px;
-    }
-
-/* ================= SLIDER ================= */
-
-    .slider{
-        padding:30px 15px;
-    }
-
-    .slide{
-        min-width:190px;
-        padding:20px;
-        margin-right:20px;
-    }
-
-    .logo-box{
-        width:110px;
-        height:110px;
-    }
-
-    .slide p{
-        font-size:14px;
-    }
-
-/* ================= FOOTER ================= */
-
-    .elite-container{
-        flex-direction:column;
-        gap:35px;
-        padding:0 20px;
-    }
-
-    .elite-brand h2{
-        font-size:24px;
-    }
-
-    .elite-brand span{
-        font-size:18px;
-        letter-spacing:3px;
-    }
-
-/* ================= PRODUCT PAGE ================= */
-
-    .product-page{
-        flex-direction:column;
-        padding:20px;
-    }
-
-    .sidebar{
-        width:100%;
-        position:relative;
-        top:0;
-    }
-
-    .product-container{
-        grid-template-columns:1fr 1fr;
-        gap:14px;
-    }
-
-    .product-card{
-        min-height:180px;
-        height:auto;
-        padding:14px;
-    }
-
-    .img-box{
-        height:90px;
-    }
-
-    .product-card h4{
-        font-size:12px;
-    }
-
-/* ================= ABOUT PAGE ================= */
-
-    .about-wrapper{
-        flex-direction:column;
-        width:94%;
-        padding:20px;
-    }
-
-    .about-left h2{
-        font-size:26px;
-    }
-
-    .about-left p{
-        font-size:14px;
-    }
-
-    .stats-row{
-        flex-direction:column;
-    }
-
-    .about-bottom{
-        flex-direction:column;
-    }
-
-    .bottom-left,
-    .bottom-right{
-        flex-direction:column;
-    }
-
-/* ================= BRANCH PAGE ================= */
-
-    .branches-wrapper{
-        flex-direction:column;
-        width:95%;
-        padding:20px;
-    }
-
-    .branches-left{
-        width:100%;
-    }
-
-    .branches-left h2{
-        font-size:30px;
-    }
-
-    .branches-left p{
-        font-size:14px;
-    }
-
-    .branches-right{
-        grid-template-columns:1fr;
-    }
-
-    .branch-stats{
-        flex-direction:column;
-    }
-
-    .branch-card{
-        padding:25px 20px;
-    }
-
-    .branch-card h3{
-        font-size:22px;
-    }
-
-    .branch-card p{
-        font-size:14px;
-    }
-
-    .bottom-card{
-        flex-direction:column;
-        padding:24px;
-    }
-
-/* ================= ADMIN PANEL ================= */
-
-    .admin-wrapper{
-        margin:30px 12px;
-        padding:25px 15px;
-    }
-
-    .admin-title{
-        font-size:28px;
-    }
-
-    .admin-tabs{
-        flex-wrap:wrap;
-    }
-
-    .admin-form{
-        flex-direction:column;
-    }
-
-    .admin-list{
-        grid-template-columns:1fr;
-    }
-}
-
-/* ================= SMALL MOBILE ================= */
-
-@media(max-width:480px){
-
-    .hero-content h1{
-        font-size:28px;
-    }
-
-    .section-title h2{
-        font-size:24px;
-    }
-
-    .product-container{
-        grid-template-columns:1fr;
-    }
-
-    .hero-overlay h1{
-        font-size:34px;
-    }
-
-    .branches-left h2{
-        font-size:26px;
-    }
-
-    .elite-container{
-        padding:0 15px;
-    }
-}
-
-
-# Complete Responsive CSS Structure
-
-Tumhara CSS bahut bada hai aur usme duplicate sections bhi hain.
-
-Best solution:
-
-* Existing desktop design same rahe
-* Sirf responsive fixes END me add karo
-* Purana code delete mat karo
-
-Neeche final optimized responsive block diya hai. Isko bas current `style.css` ke bilkul END me paste karo.
-
-```css
-
-html,body{
-    width:100%;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-iframe{
-    max-width:100%;
-}
-
-/* ================= MOBILE NAVBAR ================= */
-
-@media(max-width:768px){
-
-    .navbar{
-        padding:10px 15px;
-    }
-
-    .logo-section img{
-        height:52px;
-    }
-
-    .logo-text .top{
-        font-size:14px;
-    }
-
-    .logo-text .bottom{
-        font-size:11px;
-        letter-spacing:1px;
-    }
-
-    .nav-links{
-        width:240px;
-    }
-
-    .menu-btn{
-        display:flex;
-    }
-
-/* ================= HERO ================= */
-
-    .hero{
-        height:auto;
-        padding:130px 18px 80px;
-        text-align:center;
-        justify-content:center;
-    }
-
-    .hero-content{
-        max-width:100%;
-    }
-
-    .hero-content h1{
-        font-size:34px;
-        line-height:1.25;
-    }
-
-    .hero-content p{
-        font-size:14px;
-        line-height:1.8;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-        width:100%;
-    }
-
-/* ================= PRODUCTS ================= */
-
-    .products{
-        width:94%;
-        grid-template-columns:1fr;
-        margin-top:-20px;
-    }
-
-    .card{
-        padding:28px 22px;
-        border-radius:24px;
-    }
-
-    .card h2{
-        font-size:24px;
-    }
-
-    .card p{
-        font-size:14px;
-    }
-
-/* ================= SECTION TITLE ================= */
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-/* ================= INFO SECTION ================= */
-
-    .info-card{
-        flex-direction:column;
-    }
-
-    .info-map,
-    .info-content{
-        width:100%;
-    }
-
-    .info-map{
-        height:220px;
-    }
-
-    .info-content{
-        padding:30px 20px;
-    }
-
-    .info-content h2{
-        font-size:28px;
-    }
-
-    .info-content p{
-        font-size:14px;
-    }
-
-/* ================= SLIDER ================= */
-
-    .slider{
-        padding:30px 15px;
-    }
-
-    .slide{
-        min-width:190px;
-        padding:20px;
-        margin-right:20px;
-    }
-
-    .logo-box{
-        width:110px;
-        height:110px;
-    }
-
-    .slide p{
-        font-size:14px;
-    }
-
-/* ================= FOOTER ================= */
-
-    .elite-container{
-        flex-direction:column;
-        gap:35px;
-        padding:0 20px;
-    }
-
-    .elite-brand h2{
-        font-size:24px;
-    }
-
-    .elite-brand span{
-        font-size:18px;
-        letter-spacing:3px;
-    }
-
-/* ================= PRODUCT PAGE ================= */
-
-    .product-page{
-        flex-direction:column;
-        padding:20px;
-    }
-
-    .sidebar{
-        width:100%;
-        position:relative;
-        top:0;
-    }
-
-    .product-container{
-        grid-template-columns:1fr 1fr;
-        gap:14px;
-    }
-
-    .product-card{
-        min-height:180px;
-        height:auto;
-        padding:14px;
-    }
-
-    .img-box{
-        height:90px;
-    }
-
-    .product-card h4{
-        font-size:12px;
-    }
-
-/* ================= ABOUT PAGE ================= */
-
-    .about-wrapper{
-        flex-direction:column;
-        width:94%;
-        padding:20px;
-    }
-
-    .about-left h2{
-        font-size:26px;
-    }
-
-    .about-left p{
-        font-size:14px;
-    }
-
-    .stats-row{
-        flex-direction:column;
-    }
-
-    .about-bottom{
-        flex-direction:column;
-    }
-
-    .bottom-left,
-    .bottom-right{
-        flex-direction:column;
-    }
-
-/* ================= BRANCH PAGE ================= */
-
-    .branches-wrapper{
-        flex-direction:column;
-        width:95%;
-        padding:20px;
-    }
-
-    .branches-left{
-        width:100%;
-    }
-
-    .branches-left h2{
-        font-size:30px;
-    }
-
-    .branches-left p{
-        font-size:14px;
-    }
-
-    .branches-right{
-        grid-template-columns:1fr;
-    }
-
-    .branch-stats{
-        flex-direction:column;
-    }
-
-    .branch-card{
-        padding:25px 20px;
-    }
-
-    .branch-card h3{
-        font-size:22px;
-    }
-
-    .branch-card p{
-        font-size:14px;
-    }
-
-    .bottom-card{
-        flex-direction:column;
-        padding:24px;
-    }
-
-/* ================= ADMIN PANEL ================= */
-
-    .admin-wrapper{
-        margin:30px 12px;
-        padding:25px 15px;
-    }
-
-    .admin-title{
-        font-size:28px;
-    }
-
-    .admin-tabs{
-        flex-wrap:wrap;
-    }
-
-    .admin-form{
-        flex-direction:column;
-    }
-
-    .admin-list{
-        grid-template-columns:1fr;
-    }
-}
-
-/* ================= SMALL MOBILE ================= */
-
-@media(max-width:480px){
-
-    .hero-content h1{
-        font-size:28px;
-    }
-
-    .section-title h2{
-        font-size:24px;
-    }
-
-    .product-container{
-        grid-template-columns:1fr;
-    }
-
-    .hero-overlay h1{
-        font-size:34px;
-    }
-
-    .branches-left h2{
-        font-size:26px;
-    }
-
-    .elite-container{
-        padding:0 15px;
-    }
-}
-
-```
-
-# Home Page + Product Page Premium Responsive Fix
-
-Aapke About aur Branches pages already premium responsive lag rahe hain.
-Problem mainly:
-
-* Home hero section
-* Product grid
-* Product cards
-* Sidebar
-* Navbar spacing
-* Slider spacing
-
-Neeche wala code current CSS ke END me paste karo.
-
-```css
 
 /* =========================================================
-   HOME PAGE RESPONSIVE FIX
+   ALL RESPONSIVE MEDIA QUERIES (ORGANIZED)
 ========================================================= */
 
+/* -------- 1100px (Tablets & Small Laptops) -------- */
+@media(max-width:1100px){
+    .hero{ padding:0 40px; }
+    .hero-content h1{ font-size:52px; }
+    .info-card{ flex-direction:column; }
+    .info-map, .info-content{ width:100%; }
+    .info-map{ height:300px; }
+    .info-content{ padding:55px 40px; }
+    .info-content h2{ font-size:44px; }
+    .about-wrapper{ flex-direction:column; }
+    .about-bottom{ flex-direction:column; }
+    .branches-wrapper{ flex-direction:column; }
+    .branches-left{ width:100%; }
+    .branches-bottom{ flex-direction:column; }
+}
+
+/* -------- 992px (Large Tablets / iPads) -------- */
 @media(max-width:992px){
-
-    .hero{
-        height:auto;
-        padding:150px 35px 90px;
-        justify-content:center;
-        text-align:center;
-    }
-
-    .hero-content{
-        max-width:100%;
-    }
-
-    .hero-content h1{
-        font-size:52px;
-        line-height:1.2;
-    }
-
-    .hero-content p{
-        max-width:100%;
-        font-size:16px;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-        flex-wrap:wrap;
-    }
-
-    .products{
-        width:95%;
-        grid-template-columns:repeat(2,1fr);
-        gap:20px;
-    }
-
-    .card{
-        padding:30px;
-    }
-
-    .info-card{
-        flex-direction:column;
-    }
-
-    .info-map,
-    .info-content{
-        width:100%;
-    }
-
-    .info-map{
-        height:320px;
-    }
-
-    .info-content{
-        padding:40px 30px;
-    }
+    .hero{ height:auto; padding:150px 35px 90px; justify-content:center; text-align:center; }
+    .hero-content{ max-width:100%; }
+    .hero-content h1{ font-size:52px; line-height:1.2; }
+    .hero-content p{ max-width:100%; font-size:16px; }
+    .hero-buttons{ justify-content:center; flex-wrap:wrap; }
+    .products{ width:95%; grid-template-columns:repeat(2,1fr); gap:20px; }
+    .card{ padding:30px; }
+    .info-map{ height:320px; }
+    .info-content{ padding:40px 30px; }
+    .product-page{ flex-direction:column; padding:20px 25px 50px; }
+    .sidebar{ width:100%; position:relative; top:0; margin-bottom:20px; }
+    .product-container{ grid-template-columns:repeat(2,1fr); gap:18px; }
+    .product-card{ height:auto; min-height:220px; }
 }
 
-/* =========================================================
-   MOBILE HOME PAGE
-========================================================= */
+/* -------- 900px (Mobile Nav Toggle & Smaller Adjustments) -------- */
+@media(max-width:900px){
+    .navbar{ padding:10px 20px; }
+    .logo-section img{ height:60px; }
+    .logo-text .top{ font-size:16px; }
+    .logo-text .bottom{ font-size:14px; letter-spacing:2px; }
+    .menu-btn{ display:flex; }
+    .nav-links{ position:fixed; top:0; right:-100%; height:100vh; width:260px; background:linear-gradient(135deg, #0f172a, #1e293b); flex-direction:column; align-items:center; justify-content:center; gap:40px; transition:right 0.4s cubic-bezier(0.4, 0, 0.2, 1); box-shadow:-10px 0 30px rgba(0,0,0,0.5); }
+    .nav-links.nav-active{ right:0; }
+    
+    .branches-left h2{ font-size:42px; line-height:1.25; margin-bottom:22px; }
+    .branches-left p{ font-size:15px; line-height:1.8; margin-bottom:20px; }
+    .hero-overlay h1{ font-size:58px; }
+    .branch-card{ padding:28px 22px; }
+    .branch-card h3{ font-size:21px; margin-bottom:10px; }
+    .branch-card p{ font-size:14px; line-height:1.7; margin-bottom:18px; }
+    .branch-phone{ font-size:14px; }
+    .branch-tag{ font-size:11px; padding:7px 16px; }
+    .branch-icon{ width:72px; height:72px; font-size:28px; }
+    .office-box h3{ font-size:24px; }
+    .office-box p{ font-size:14px; }
+    .stat-box h3{ font-size:28px; }
+    .stat-box span{ font-size:12px; }
+    .bottom-card p{ font-size:14px; line-height:1.8; }
 
+    .elite-container{ flex-direction:column; padding:0 30px; }
+}
+
+/* -------- 768px (Mobile Phones) -------- */
 @media(max-width:768px){
+    .navbar{ padding:10px 15px; }
+    .logo-section img{ height:52px; }
+    .logo-text .top{ font-size:14px; }
+    .logo-text .bottom{ font-size:11px; letter-spacing:1px; }
+    .nav-links{ width:240px; }
+    
+    .hero{ padding:130px 18px 80px; }
+    .hero-content h1{ font-size:36px; line-height:1.25; }
+    .hero-content p{ font-size:14px; line-height:1.8; }
+    .hero-buttons{ flex-direction:column; gap:14px; }
+    .primary-btn, .secondary-btn{ width:100%; }
+    
+    .products{ width:94%; grid-template-columns:1fr; margin-top:-20px; }
+    .card{ border-radius:24px; padding:25px 22px; }
+    .card-icon{ width:65px; height:65px; font-size:24px; }
+    .card h2{ font-size:24px; }
+    .card p{ font-size:14px; }
+    
+    .section-title h2{ font-size:28px; }
+    .info-card{ border-radius:28px; }
+    .info-map{ height:240px; }
+    .info-content{ padding:30px 22px; }
+    .info-content h2{ font-size:30px; }
+    .info-content p{ font-size:14px; }
+    
+    .slider{ padding:25px 12px; }
+    .slide{ min-width:180px; margin-right:18px; padding:18px; }
+    .logo-box{ width:100px; height:100px; }
+    .slide p{ font-size:14px; }
+    
+    .elite-container{ gap:35px; padding:0 20px; }
+    .elite-brand h2{ font-size:24px; }
+    .elite-brand span{ font-size:18px; letter-spacing:3px; }
+    
+    .product-title{ margin-top:120px; margin-bottom:20px; }
+    .product-title h1{ font-size:28px; }
+    .product-page{ padding:15px; gap:18px; }
+    .sidebar{ border-radius:18px; padding:18px; }
+    .sidebar h3{ font-size:16px; }
+    .filter-btn{ font-size:13px; padding:10px 12px; }
+    .product-container{ grid-template-columns:1fr 1fr; gap:14px; }
+    .product-card{ border-radius:18px; min-height:180px; padding:14px; }
+    .img-box{ height:90px; }
+    .product-card h4{ font-size:12px; line-height:1.5; }
+    
+    .about-hero{ height:220px; }
+    .about-overlay h1{ font-size:38px; }
+    .about-wrapper{ width:94%; padding:20px; }
+    .about-left h2{ font-size:26px; }
+    .about-left p{ font-size:14px; }
+    .about-box{ padding:22px; }
+    .box-title h3{ font-size:22px; }
+    .about-box ul li{ font-size:15px; }
+    .stats-row{ flex-direction:column; }
+    .bottom-left, .bottom-right{ padding:20px; flex-direction:column; }
+    .bottom-left i, .bottom-right i{ width:50px; height:50px; min-width:50px; min-height:50px; font-size:20px; }
+    .bottom-left p, .bottom-right p{ font-size:14px; }
 
-    .hero{
-        padding:130px 18px 80px;
-    }
+    .branches-hero{ height:280px; }
+    .hero-overlay h1{ font-size:48px; }
+    .branches-wrapper{ width:95%; padding:20px; }
+    .branches-left h2{ font-size:30px; }
+    .branch-stats{ flex-direction:column; }
+    .branches-right{ grid-template-columns:1fr; }
+    .branch-card{ padding:25px 20px; }
+    .branch-card h3{ font-size:22px; }
+    .bottom-card{ flex-direction:column; padding:24px; }
 
-    .hero-content h1{
-        font-size:36px;
-        line-height:1.25;
-    }
-
-    .hero-content p{
-        font-size:14px;
-        line-height:1.8;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-        gap:14px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-        width:100%;
-    }
-
-    .products{
-        width:94%;
-        grid-template-columns:1fr;
-        margin-top:-20px;
-    }
-
-    .card{
-        border-radius:24px;
-        padding:25px 22px;
-    }
-
-    .card-icon{
-        width:65px;
-        height:65px;
-        font-size:24px;
-    }
-
-    .card h2{
-        font-size:24px;
-    }
-
-    .card p{
-        font-size:14px;
-    }
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-    .info-map{
-        height:240px;
-    }
-
-    .info-content{
-        padding:30px 22px;
-    }
-
-    .info-content h2{
-        font-size:30px;
-    }
-
-    .info-content p{
-        font-size:14px;
-    }
-
-    .slider{
-        padding:25px 12px;
-    }
-
-    .slide{
-        min-width:180px;
-        margin-right:18px;
-        padding:18px;
-    }
-
-    .logo-box{
-        width:100px;
-        height:100px;
-    }
+    .admin-wrapper{ margin:30px 12px; padding:25px 15px; }
+    .admin-title{ font-size:28px; }
+    .admin-tabs{ flex-wrap:wrap; }
+    .admin-form{ flex-direction:column; }
+    .admin-list{ grid-template-columns:1fr; }
 }
 
-/* =========================================================
-   PRODUCT PAGE RESPONSIVE FIX
-========================================================= */
-
-@media(max-width:992px){
-
-    .product-page{
-        flex-direction:column;
-        padding:20px 25px 50px;
-    }
-
-    .sidebar{
-        width:100%;
-        position:relative;
-        top:0;
-        margin-bottom:20px;
-    }
-
-    .product-container{
-        grid-template-columns:repeat(2,1fr);
-        gap:18px;
-    }
-
-    .product-card{
-        height:auto;
-        min-height:220px;
-    }
-}
-
-/* =========================================================
-   MOBILE PRODUCT PAGE
-========================================================= */
-
-@media(max-width:768px){
-
-    .product-title{
-        margin-top:120px;
-        margin-bottom:20px;
-    }
-
-    .product-title h1{
-        font-size:28px;
-    }
-
-    .product-page{
-        padding:15px;
-        gap:18px;
-    }
-
-    .sidebar{
-        border-radius:18px;
-        padding:18px;
-    }
-
-    .sidebar h3{
-        font-size:16px;
-    }
-
-    .filter-btn{
-        font-size:13px;
-        padding:10px 12px;
-    }
-
-    .product-container{
-        grid-template-columns:1fr 1fr;
-        gap:14px;
-    }
-
-    .product-card{
-        border-radius:18px;
-        min-height:180px;
-        padding:14px;
-    }
-
-    .img-box{
-        height:90px;
-    }
-
-    .product-card h4{
-        font-size:12px;
-        line-height:1.5;
-    }
-}
-
-/* =========================================================
-   SMALL MOBILE PRODUCT FIX
-========================================================= */
-
+/* -------- 480px (Small Mobile Phones) -------- */
 @media(max-width:480px){
-
-    .hero-content h1{
-        font-size:30px;
-    }
-
-    .products{
-        width:96%;
-    }
-
-    .product-container{
-        grid-template-columns:1fr;
-    }
-
-    .product-card{
-        min-height:210px;
-    }
-
-    .info-content h2{
-        font-size:25px;
-    }
-
-    .section-title h2{
-        font-size:24px;
-    }
+    .hero-content h1{ font-size:30px; }
+    .section-title h2{ font-size:24px; }
+    .products{ width:96%; }
+    .product-container{ grid-template-columns:1fr; }
+    .product-card{ min-height:210px; }
+    .info-content h2{ font-size:25px; }
+    .hero-overlay h1{ font-size:34px; }
+    .branches-left h2{ font-size:26px; }
+    .elite-container{ padding:0 15px; }
 }
-
-# Complete Responsive CSS Structure
-
-Tumhara CSS bahut bada hai aur usme duplicate sections bhi hain.
-
-Best solution:
-
-* Existing desktop design same rahe
-* Sirf responsive fixes END me add karo
-* Purana code delete mat karo
-
-Neeche final optimized responsive block diya hai. Isko bas current `style.css` ke bilkul END me paste karo.
-
-```css
-
-html,body{
-    width:100%;
-    overflow-x:hidden;
-}
-
-img{
-    max-width:100%;
-    display:block;
-}
-
-iframe{
-    max-width:100%;
-}
-
-/* ================= MOBILE NAVBAR ================= */
-
-@media(max-width:768px){
-
-    .navbar{
-        padding:10px 15px;
-    }
-
-    .logo-section img{
-        height:52px;
-    }
-
-    .logo-text .top{
-        font-size:14px;
-    }
-
-    .logo-text .bottom{
-        font-size:11px;
-        letter-spacing:1px;
-    }
-
-    .nav-links{
-        width:240px;
-    }
-
-    .menu-btn{
-        display:flex;
-    }
-
-/* ================= HERO ================= */
-
-    .hero{
-        height:auto;
-        padding:130px 18px 80px;
-        text-align:center;
-        justify-content:center;
-    }
-
-    .hero-content{
-        max-width:100%;
-    }
-
-    .hero-content h1{
-        font-size:34px;
-        line-height:1.25;
-    }
-
-    .hero-content p{
-        font-size:14px;
-        line-height:1.8;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-        width:100%;
-    }
-
-/* ================= PRODUCTS ================= */
-
-    .products{
-        width:94%;
-        grid-template-columns:1fr;
-        margin-top:-20px;
-    }
-
-    .card{
-        padding:28px 22px;
-        border-radius:24px;
-    }
-
-    .card h2{
-        font-size:24px;
-    }
-
-    .card p{
-        font-size:14px;
-    }
-
-/* ================= SECTION TITLE ================= */
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-/* ================= INFO SECTION ================= */
-
-    .info-card{
-        flex-direction:column;
-    }
-
-    .info-map,
-    .info-content{
-        width:100%;
-    }
-
-    .info-map{
-        height:220px;
-    }
-
-    .info-content{
-        padding:30px 20px;
-    }
-
-    .info-content h2{
-        font-size:28px;
-    }
-
-    .info-content p{
-        font-size:14px;
-    }
-
-/* ================= SLIDER ================= */
-
-    .slider{
-        padding:30px 15px;
-    }
-
-    .slide{
-        min-width:190px;
-        padding:20px;
-        margin-right:20px;
-    }
-
-    .logo-box{
-        width:110px;
-        height:110px;
-    }
-
-    .slide p{
-        font-size:14px;
-    }
-
-/* ================= FOOTER ================= */
-
-    .elite-container{
-        flex-direction:column;
-        gap:35px;
-        padding:0 20px;
-    }
-
-    .elite-brand h2{
-        font-size:24px;
-    }
-
-    .elite-brand span{
-        font-size:18px;
-        letter-spacing:3px;
-    }
-
-/* ================= PRODUCT PAGE ================= */
-
-    .product-page{
-        flex-direction:column;
-        padding:20px;
-    }
-
-    .sidebar{
-        width:100%;
-        position:relative;
-        top:0;
-    }
-
-    .product-container{
-        grid-template-columns:1fr 1fr;
-        gap:14px;
-    }
-
-    .product-card{
-        min-height:180px;
-        height:auto;
-        padding:14px;
-    }
-
-    .img-box{
-        height:90px;
-    }
-
-    .product-card h4{
-        font-size:12px;
-    }
-
-/* ================= ABOUT PAGE ================= */
-
-    .about-wrapper{
-        flex-direction:column;
-        width:94%;
-        padding:20px;
-    }
-
-    .about-left h2{
-        font-size:26px;
-    }
-
-    .about-left p{
-        font-size:14px;
-    }
-
-    .stats-row{
-        flex-direction:column;
-    }
-
-    .about-bottom{
-        flex-direction:column;
-    }
-
-    .bottom-left,
-    .bottom-right{
-        flex-direction:column;
-    }
-
-/* ================= BRANCH PAGE ================= */
-
-    .branches-wrapper{
-        flex-direction:column;
-        width:95%;
-        padding:20px;
-    }
-
-    .branches-left{
-        width:100%;
-    }
-
-    .branches-left h2{
-        font-size:30px;
-    }
-
-    .branches-left p{
-        font-size:14px;
-    }
-
-    .branches-right{
-        grid-template-columns:1fr;
-    }
-
-    .branch-stats{
-        flex-direction:column;
-    }
-
-    .branch-card{
-        padding:25px 20px;
-    }
-
-    .branch-card h3{
-        font-size:22px;
-    }
-
-    .branch-card p{
-        font-size:14px;
-    }
-
-    .bottom-card{
-        flex-direction:column;
-        padding:24px;
-    }
-
-/* ================= ADMIN PANEL ================= */
-
-    .admin-wrapper{
-        margin:30px 12px;
-        padding:25px 15px;
-    }
-
-    .admin-title{
-        font-size:28px;
-    }
-
-    .admin-tabs{
-        flex-wrap:wrap;
-    }
-
-    .admin-form{
-        flex-direction:column;
-    }
-
-    .admin-list{
-        grid-template-columns:1fr;
-    }
-}
-
-/* ================= SMALL MOBILE ================= */
-
-@media(max-width:480px){
-
-    .hero-content h1{
-        font-size:28px;
-    }
-
-    .section-title h2{
-        font-size:24px;
-    }
-
-    .product-container{
-        grid-template-columns:1fr;
-    }
-
-    .hero-overlay h1{
-        font-size:34px;
-    }
-
-    .branches-left h2{
-        font-size:26px;
-    }
-
-    .elite-container{
-        padding:0 15px;
-    }
-}
-
-```
-
-# Home Page + Product Page Premium Responsive Fix
-
-Aapke About aur Branches pages already premium responsive lag rahe hain.
-Problem mainly:
-
-* Home hero section
-* Product grid
-* Product cards
-* Sidebar
-* Navbar spacing
-* Slider spacing
-
-Neeche wala code current CSS ke END me paste karo.
-
-```css
-
-/* =========================================================
-   HOME PAGE RESPONSIVE FIX
-========================================================= */
-
-@media(max-width:992px){
-
-    .hero{
-        height:auto;
-        padding:150px 35px 90px;
-        justify-content:center;
-        text-align:center;
-    }
-
-    .hero-content{
-        max-width:100%;
-    }
-
-    .hero-content h1{
-        font-size:52px;
-        line-height:1.2;
-    }
-
-    .hero-content p{
-        max-width:100%;
-        font-size:16px;
-    }
-
-    .hero-buttons{
-        justify-content:center;
-        flex-wrap:wrap;
-    }
-
-    .products{
-        width:95%;
-        grid-template-columns:repeat(2,1fr);
-        gap:20px;
-    }
-
-    .card{
-        padding:30px;
-    }
-
-    .info-card{
-        flex-direction:column;
-    }
-
-    .info-map,
-    .info-content{
-        width:100%;
-    }
-
-    .info-map{
-        height:320px;
-    }
-
-    .info-content{
-        padding:40px 30px;
-    }
-}
-
-/* =========================================================
-   MOBILE HOME PAGE
-========================================================= */
-
-@media(max-width:768px){
-
-    .hero{
-        padding:130px 18px 80px;
-    }
-
-    .hero-content h1{
-        font-size:36px;
-        line-height:1.25;
-    }
-
-    .hero-content p{
-        font-size:14px;
-        line-height:1.8;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
-        gap:14px;
-    }
-
-    .primary-btn,
-    .secondary-btn{
-        width:100%;
-    }
-
-    .products{
-        width:94%;
-        grid-template-columns:1fr;
-        margin-top:-20px;
-    }
-
-    .card{
-        border-radius:24px;
-        padding:25px 22px;
-    }
-
-    .card-icon{
-        width:65px;
-        height:65px;
-        font-size:24px;
-    }
-
-    .card h2{
-        font-size:24px;
-    }
-
-    .card p{
-        font-size:14px;
-    }
-
-    .section-title h2{
-        font-size:28px;
-    }
-
-    .info-map{
-        height:240px;
-    }
-
-    .info-content{
-        padding:30px 22px;
-    }
-
-    .info-content h2{
-        font-size:30px;
-    }
-
-    .info-content p{
-        font-size:14px;
-    }
-
-    .slider{
-        padding:25px 12px;
-    }
-
-    .slide{
-        min-width:180px;
-        margin-right:18px;
-        padding:18px;
-    }
-
-    .logo-box{
-        width:100px;
-        height:100px;
-    }
-}
-
-/* =========================================================
-   PRODUCT PAGE RESPONSIVE FIX
-========================================================= */
-
-@media(max-width:992px){
-
-    .product-page{
-        flex-direction:column;
-        padding:20px 25px 50px;
-    }
-
-    .sidebar{
-        width:100%;
-        position:relative;
-        top:0;
-        margin-bottom:20px;
-    }
-
-    .product-container{
-        grid-template-columns:repeat(2,1fr);
-        gap:18px;
-    }
-
-    .product-card{
-        height:auto;
-        min-height:220px;
-    }
-}
-
-/* =========================================================
-   MOBILE PRODUCT PAGE
-========================================================= */
-
-@media(max-width:768px){
-
-    .product-title{
-        margin-top:120px;
-        margin-bottom:20px;
-    }
-
-    .product-title h1{
-        font-size:28px;
-    }
-
-    .product-page{
-        padding:15px;
-        gap:18px;
-    }
-
-    .sidebar{
-        border-radius:18px;
-        padding:18px;
-    }
-
-    .sidebar h3{
-        font-size:16px;
-    }
-
-    .filter-btn{
-        font-size:13px;
-        padding:10px 12px;
-    }
-
-    .product-container{
-        grid-template-columns:1fr 1fr;
-        gap:14px;
-    }
-
-    .product-card{
-        border-radius:18px;
-        min-height:180px;
-        padding:14px;
-    }
-
-    .img-box{
-        height:90px;
-    }
-
-    .product-card h4{
-        font-size:12px;
-        line-height:1.5;
-    }
-}
-
-/* =========================================================
-   SMALL MOBILE PRODUCT FIX
-========================================================= */
-
-@media(max-width:480px){
-
-    .hero-content h1{
-        font-size:30px;
-    }
-
-    .products{
-        width:96%;
-    }
-
-    .product-container{
-        grid-template-columns:1fr;
-    }
-
-    .product-card{
-        min-height:210px;
-    }
-
-    .info-content h2{
-        font-size:25px;
-    }
-
-    .section-title h2{
-        font-size:24px;
-    }
-}
-
-
