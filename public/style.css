@@ -172,7 +172,7 @@ iframe {
     font-size:13px;
     font-weight:600;
     letter-spacing:1px;
-    margin-bottom:28px;
+    margin-bottom:12px;
 }
 
 .hero-content h1{
@@ -511,7 +511,7 @@ iframe {
 }
 
 .product-title h1{
-    font-size:36px;
+    font-size:40px;
     font-weight:750;
     color:#0f172a;
     position:relative;
@@ -680,6 +680,7 @@ iframe {
 
 .about-overlay{
     text-align:center;
+    padding-bottom: 30px;
 }
 
 .about-overlay h1{
@@ -943,7 +944,7 @@ iframe {
 }
 
 .hero-overlay h1{
-    font-size:82px;
+    font-size:40px;
     color:#071739;
     font-weight:800;
     letter-spacing:1px;
@@ -952,10 +953,10 @@ iframe {
 .hero-line{
     width:190px;
     height:5px;
-    margin:15px auto;
+    margin:10px auto;
     border-radius:20px;
-    background:linear-gradient(90deg,#2e7d32,#4CAF50,#8bc34a);
-}
+    background:linear-gradient(90deg,#c6a756,#f5deb3,#c6a756);
+}    
 
 .branches-wrapper{
     width:92%;
@@ -991,14 +992,14 @@ iframe {
 }
 
 .branches-left h2{
-    font-size:56px;
+    font-size:44px;
     line-height:1.15;
     color:#071739;
     margin-bottom:28px;
 }
 
 .branches-left p{
-    font-size:18px;
+    font-size:16px;
     line-height:1.9;
     color:#475569;
     margin-bottom:22px;
@@ -1042,7 +1043,7 @@ iframe {
 }
 
 .stat-box h3{
-    font-size:36px;
+    font-size:34px;
     color:#071739;
     margin-bottom:8px;
 }
@@ -1338,6 +1339,7 @@ iframe {
     width:100px;
     height:100px;
     object-fit:contain;
+    margin: 0 auto 15px auto;
     margin-bottom:15px;
 }
 

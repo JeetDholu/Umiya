@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <!-- YEH LINE MOBILE RESPONSIVENESS KE LIYE ZAROORI HAI -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Products</title>
     <link rel="stylesheet" href="/style.css">
 </head>
@@ -19,7 +23,7 @@
 
         <h3>Companies</h3>
 
-                    <!-- ALL PRODUCTS -->
+            <!-- ALL PRODUCTS -->
             <a href="/products"
             class="filter-btn <%= !selectedCompany ? 'active' : '' %>">
 
@@ -37,7 +41,7 @@
 
                 </a>
 
-<% }) %>
+            <% }) %>
 
     </div>
 
@@ -55,7 +59,7 @@
             <div class="product-card">
 
                 <div class="img-box">
-                    <img src="<%= p.image %>">
+                    <img src="<%= p.image %>" alt="<%= p.name %>">
                 </div>
 
                 <h4><%= p.name %></h4>

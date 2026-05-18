@@ -60,13 +60,16 @@ const PORT = process.env.PORT || 3000;
 
 
     const storage = multer.diskStorage({
-        destination: (req, file, cb) => {
-            cb(null, "public/uploads");
-        },
-        filename: (req, file, cb) => {
-            cb(null, Date.now() + path.extname(file.originalname));
-        }
-    });
+    destination: (req, file, cb) => {
+        // Yeh line absolute path set karti hai taaki image sahi folder me jaye
+        cb(null, path.join(__dirname, "public", "uploads")); 
+    },
+    filename: (req, file, cb) => {
+        // Name me spaces ko hata dega taaki URL break na ho
+        const uniqueName = Date.now() + '-' + file.originalname.replace(/\s+/g, '-');
+        cb(null, uniqueName);
+    }
+});
 
     const upload = multer({ storage });
 
