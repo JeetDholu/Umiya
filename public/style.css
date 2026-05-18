@@ -2459,106 +2459,125 @@ body{
 }
 
 /* ================= LEFT TITLE ================= */
+@media(max-width:900px){
+    .branches-left h2{
+        font-size:42px;   /* pehle 56px tha */
+        line-height:1.25;
 
-.branches-left h2{
-    font-size:42px;   /* pehle 56px tha */
-    line-height:1.25;
+        color:#071739;
 
-    color:#071739;
+        margin-bottom:22px;
+    }
 
-    margin-bottom:22px;
+    /* TEXT */
+
+    .branches-left p{
+        font-size:15px;   /* pehle 18px */
+        line-height:1.8;
+
+        color:#475569;
+
+        margin-bottom:20px;
+    }
+
+    /* HERO TITLE */
+
+    .hero-overlay h1{
+        font-size:58px;   /* pehle 82px */
+        color:#071739;
+        font-weight:800;
+    }
+
+    /* ================= CARD ================= */
+
+    .branch-card{
+        padding:28px 22px;   /* thoda compact */
+    }
+
+    /* CARD TITLE */
+
+    .branch-card h3{
+        font-size:21px;   /* pehle 32px */
+        color:#071739;
+
+        margin-bottom:10px;
+    }
+
+    /* ADDRESS */
+
+    .branch-card p{
+        font-size:14px;   /* pehle 17px */
+        color:#475569;
+
+        line-height:1.7;
+
+        margin-bottom:18px;
+    }
+
+    /* PHONE */
+
+    .branch-phone{
+        font-size:14px;
+    }
+
+    /* TAG */
+
+    .branch-tag{
+        font-size:11px;
+        padding:7px 16px;
+    }
+
+    /* ICON */
+
+    .branch-icon{
+        width:72px;
+        height:72px;
+
+        font-size:28px;
+    }
+
+    /* OFFICE BOX */
+
+    .office-box h3{
+        font-size:24px;
+    }
+
+    .office-box p{
+        font-size:14px;
+    }
+
+    /* STATS */
+
+    .stat-box h3{
+        font-size:28px;
+    }
+
+    .stat-box span{
+        font-size:12px;
+    }
+
+    /* BOTTOM TEXT */
+
+    .bottom-card p{
+        font-size:14px;
+        line-height:1.8;
+    }
 }
 
-/* TEXT */
+/* ================= MODERN SCROLL ANIMATIONS ================= */
 
-.branches-left p{
-    font-size:15px;   /* pehle 18px */
-    line-height:1.8;
-
-    color:#475569;
-
-    margin-bottom:20px;
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
 
-/* HERO TITLE */
-
-.hero-overlay h1{
-    font-size:58px;   /* pehle 82px */
-    color:#071739;
-    font-weight:800;
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* ================= CARD ================= */
-
-.branch-card{
-    padding:28px 22px;   /* thoda compact */
-}
-
-/* CARD TITLE */
-
-.branch-card h3{
-    font-size:21px;   /* pehle 32px */
-    color:#071739;
-
-    margin-bottom:10px;
-}
-
-/* ADDRESS */
-
-.branch-card p{
-    font-size:14px;   /* pehle 17px */
-    color:#475569;
-
-    line-height:1.7;
-
-    margin-bottom:18px;
-}
-
-/* PHONE */
-
-.branch-phone{
-    font-size:14px;
-}
-
-/* TAG */
-
-.branch-tag{
-    font-size:11px;
-    padding:7px 16px;
-}
-
-/* ICON */
-
-.branch-icon{
-    width:72px;
-    height:72px;
-
-    font-size:28px;
-}
-
-/* OFFICE BOX */
-
-.office-box h3{
-    font-size:24px;
-}
-
-.office-box p{
-    font-size:14px;
-}
-
-/* STATS */
-
-.stat-box h3{
-    font-size:28px;
-}
-
-.stat-box span{
-    font-size:12px;
-}
-
-/* BOTTOM TEXT */
-
-.bottom-card p{
-    font-size:14px;
-    line-height:1.8;
-}
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }

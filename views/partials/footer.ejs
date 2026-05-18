@@ -33,3 +33,37 @@
     </div>
 
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Elements to animate
+        const animatedElements = document.querySelectorAll('.card, .info-card, .branch-card, .office-box, .stat-box, .bottom-card, .about-box');
+        
+        // Add base animation class
+        animatedElements.forEach((el, index) => {
+            el.classList.add('animate-on-scroll');
+            // Stagger animations slightly for siblings
+            if (index % 3 === 1) el.classList.add('delay-100');
+            if (index % 3 === 2) el.classList.add('delay-200');
+        });
+
+        // Intersection Observer logic
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+    });
+</script>
