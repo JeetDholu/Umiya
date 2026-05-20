@@ -62,7 +62,7 @@ const PORT = process.env.PORT || 3000;
     const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         // Yeh line absolute path set karti hai taaki image sahi folder me jaye
-        cb(null, path.join(__dirname, "public", "uploads")); 
+        cb(null, path.join(__dirname, "public","images", "uploads")); 
     },
     filename: (req, file, cb) => {
         // Name me spaces ko hata dega taaki URL break na ho
@@ -85,7 +85,7 @@ const PORT = process.env.PORT || 3000;
     app.post("/add-company", upload.single("image"), async (req, res) => {
         const newCompany = new Company({
             name: req.body.name,
-            image: "/uploads/" + req.file.filename // Correct
+            image: "/images/uploads/" + req.file.filename // Correct
         });
 
         await newCompany.save();
@@ -105,7 +105,7 @@ app.post("/add-product", upload.single("image"), async (req, res) => {
     const newProduct = new Product({
         name: req.body.name,
         // Yaha par "/uploads/" prefix zaroori hai. Aapne sayad sir req.file.filename chhod diya tha. EJS me <img src="<%= p.image %>"> hai.
-        image: "/uploads/" + req.file.filename,
+        image: "/images/uploads/" + req.file.filename,
         company: req.body.company
     });
 
@@ -117,5 +117,5 @@ app.post("/add-product", upload.single("image"), async (req, res) => {
 
 app.get("/delete-product/:id", async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
-    res.redirect("/admin");
+    res.redirect("/admin#product");
 });

@@ -1603,8 +1603,10 @@ iframe {
     .hero-content h1{ font-size:30px; }
     .section-title h2{ font-size:24px; }
     .products{ width:96%; }
-    .product-container{ grid-template-columns:1fr; }
-    .product-card{ min-height:210px; }
+    .product-container{ grid-template-columns:1fr 1fr; gap: 10px; }
+    .product-card{ min-height:180px; padding: 10px; }
+    .img-box{ height:80px; }
+    .product-card h4{ font-size:11px; white-space:normal; overflow:visible; }
     .info-content h2{ font-size:25px; }
     .hero-overlay h1{ font-size:34px; }
     .branches-left h2{ font-size:26px; }
