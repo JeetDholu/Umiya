@@ -90,14 +90,25 @@ const PORT = process.env.PORT || 3000;
 
     // add company
     app.post("/add-company", upload.single("image"), async (req, res) => {
+        try {
+        // Agar file nahi aayi, toh yahi error throw kar dega
+        if (!req.file) {
+            return res.status(400).send("Error: Image file upload nahi hui hai.");
+        }
+
         const newCompany = new Company({
             name: req.body.name,
-            image: "/images/uploads/" + req.file.filename // Correct
+            image: "/images/uploads/" + req.file.filename
         });
 
         await newCompany.save();
         res.redirect("/admin");
-    });
+
+    } catch (error) {
+        console.error("ADD COMPANY ERROR: ", error);
+        res.status(500).send("Internal Server Error Company Add karte waqt: " + error.message);
+    }
+});
 
     // delete
     app.get("/delete/:id", async (req, res) => {
@@ -108,18 +119,24 @@ const PORT = process.env.PORT || 3000;
 // ADD PRODUCT
 app.post("/add-product", upload.single("image"), async (req, res) => {
 
-    // Fix applied Here!
-    const newProduct = new Product({
-        name: req.body.name,
-        // Yaha par "/uploads/" prefix zaroori hai. Aapne sayad sir req.file.filename chhod diya tha. EJS me <img src="<%= p.image %>"> hai.
-        image: "/images/uploads/" + req.file.filename,
-        company: req.body.company
-    });
+    try {
+        if (!req.file) {
+            return res.status(400).send("Error: Image file upload nahi hui hai.");
+        }
 
-    await newProduct.save();
+        const newProduct = new Product({
+            name: req.body.name,
+            image: "/images/uploads/" + req.file.filename,
+            company: req.body.company
+        });
 
-    res.redirect("/admin#product");
+        await newProduct.save();
+        res.redirect("/admin#product");
 
+    } catch (error) {
+        console.error("ADD PRODUCT ERROR: ", error);
+        res.status(500).send("Internal Server Error Product Add karte waqt: " + error.message);
+    }
 });
 
 app.get("/delete-product/:id", async (req, res) => {
