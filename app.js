@@ -5,6 +5,7 @@ const express = require("express");
     const multer = require("multer");
     const Company = require("./models/Company");
     const Product = require("./models/Product");
+    const fs = require("fs");
 
     mongoose.connect("mongodb+srv://Umiya:Umiya@cluster.roninyt.mongodb.net/agroDB?retryWrites=true&w=majority")
     .then(()=> console.log("MongoDB Connected"));
@@ -61,8 +62,14 @@ const PORT = process.env.PORT || 3000;
 
     const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        // Yeh line absolute path set karti hai taaki image sahi folder me jaye
-        cb(null, path.join(__dirname, "public","images", "uploads")); 
+        const dir = path.join(__dirname, "public", "images", "uploads");
+        
+        // Agar folder exist nahi karta, toh automatically bana dega
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+        
+        cb(null, dir);
     },
     filename: (req, file, cb) => {
         // Name me spaces ko hata dega taaki URL break na ho
