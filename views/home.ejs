@@ -95,7 +95,7 @@
         <% companies.forEach(c => { %>
             <div class="slide">
                 <div class="logo-box">
-                <img src="<%= c.image %>" alt="Company Logo">
+                <img src="<%= c.image.replace('/uploads/', '/images/uploads/') %>" alt="Company Logo">
                 </div>
             </div>
         <% }) %>
