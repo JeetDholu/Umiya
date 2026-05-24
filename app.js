@@ -60,24 +60,7 @@ const PORT = process.env.PORT || 3000;
 
 
 
-    const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const dir = path.join(__dirname, "public", "images", "uploads");
-        
-        // Agar folder exist nahi karta, toh automatically bana dega
-        if (!fs.existsSync(dir)) {
-            fs.mkdirSync(dir, { recursive: true });
-        }
-        
-        cb(null, dir);
-    },
-    filename: (req, file, cb) => {
-        // Name me spaces ko hata dega taaki URL break na ho
-        const uniqueName = Date.now() + '-' + file.originalname.replace(/\s+/g, '-');
-        cb(null, uniqueName);
-    }
-});
-
+    const storage = multer.memoryStorage();
     const upload = multer({ storage });
 
 
@@ -95,10 +78,14 @@ const PORT = process.env.PORT || 3000;
         if (!req.file) {
             return res.status(400).send("Error: Image file upload nahi hui hai.");
         }
+        
+        // Image ko Base64 me convert karke MongoDB me store karenge taaki Render par delete na ho
+        const imageBase64 = req.file.buffer.toString("base64");
+        const imageSrc = `data:${req.file.mimetype};base64,${imageBase64}`;
 
         const newCompany = new Company({
             name: req.body.name,
-            image: "/images/uploads/" + req.file.filename
+            image: imageSrc
         });
 
         await newCompany.save();
@@ -124,9 +111,12 @@ app.post("/add-product", upload.single("image"), async (req, res) => {
             return res.status(400).send("Error: Image file upload nahi hui hai.");
         }
 
+        const imageBase64 = req.file.buffer.toString("base64");
+        const imageSrc = `data:${req.file.mimetype};base64,${imageBase64}`;
+
         const newProduct = new Product({
             name: req.body.name,
-            image: "/images/uploads/" + req.file.filename,
+            image: imageSrc,
             company: req.body.company
         });
 
