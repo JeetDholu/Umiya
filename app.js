@@ -1,135 +1,153 @@
 const express = require("express");
-    const app = express();
-    const path = require("path");
-    const mongoose = require("mongoose");
-    const multer = require("multer");
-    const Company = require("./models/Company");
-    const Product = require("./models/Product");
-    const fs = require("fs");
+const app = express();
+const path = require("path");
+const mongoose = require("mongoose");
+const multer = require("multer");
+const Company = require("./models/Company");
+const Product = require("./models/Product");
+const fs = require("fs");
 
-    mongoose.connect("mongodb+srv://Umiya:Umiya@cluster.roninyt.mongodb.net/agroDB?retryWrites=true&w=majority")
-    .then(()=> console.log("MongoDB Connected"));
+// NAYA: Session require karein
+const session = require("express-session"); 
 
-    app.set("view engine", "ejs");
-    app.set("views", path.join(__dirname, "views"));
+mongoose.connect("mongodb+srv://Umiya:Umiya@cluster.roninyt.mongodb.net/agroDB?retryWrites=true&w=majority")
+.then(()=> console.log("MongoDB Connected"));
 
-    // Zaroori hai ki 'public' directory statically serve ho taaki images display ho sake
-    app.use(express.static(path.join(__dirname, "public"))); 
-    app.use(express.urlencoded({ extended: true }));
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
-    app.get("/", async (req, res) => {
-        const companies = await Company.find();
-        res.render("home", { companies });
-    });
+app.use(express.static(path.join(__dirname, "public"))); 
+app.use(express.urlencoded({ extended: true }));
 
-    app.get("/about", (req, res) => {
-        res.render("about");
-    });
+// NAYA: Session Middleware setup (Security ke liye)
+app.use(session({
+    secret: "UmiyaAgroSecureKey", 
+    resave: false,
+    saveUninitialized: false
+}));
 
-    app.get("/products", async (req, res) => {
+// NAYA: Ye Check Karega Ki Admin Login Hai Ya Nahi
+const checkAuth = (req, res, next) => {
+    if (req.session.isAdmin) {
+        next(); // Login hai toh aage jane do
+    } else {
+        res.redirect("/login"); // Login nahi hai toh login page par bhejo
+    }
+};
 
+// ================= PUBLIC ROUTES =================
+app.get("/", async (req, res) => {
     const companies = await Company.find();
+    res.render("home", { companies });
+});
 
+app.get("/about", (req, res) => {
+    res.render("about");
+});
+
+app.get("/products", async (req, res) => {
+    const companies = await Company.find();
     let filter = {};
     let selectedCompany = "";
-
     if(req.query.company){
         filter.company = req.query.company;
         selectedCompany = req.query.company;
     }
-
     const products = await Product.find(filter);
-
-    res.render("products", {
-        companies,
-        products,
-        selectedCompany
-    });
-
+    res.render("products", { companies, products, selectedCompany });
 });
 
 app.get("/branches", (req, res) => {
     res.render("branches");
 });
 
-const PORT = process.env.PORT || 3000;
 
-    app.listen(PORT, () => {
-        console.log("Server started on port 3000");
-    });
+// ================= LOGIN SYSTEM =================
+
+// Login page dikhane ke liye
+app.get("/login", (req, res) => {
+    if(req.session.isAdmin) return res.redirect("/admin");
+    res.render("login", { error: null });
+});
+
+// ID Password check karne ke liye
+app.post("/login", (req, res) => {
+    const { username, password } = req.body;
+    
+    // YAHAN AAP APNA DEFAULT ID PASS SET KAR SAKTE HAIN
+    const adminID = "admin";
+    const adminPass = "12345"; 
+
+    if (username === adminID && password === adminPass) {
+        req.session.isAdmin = true; // Session save
+        res.redirect("/admin");
+    } else {
+        res.render("login", { error: "Invalid Username or Password!" });
+    }
+});
+
+// Logout karne ke liye
+app.get("/logout", (req, res) => {
+    req.session.destroy();
+    res.redirect("/login");
+});
 
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
 
-    const storage = multer.memoryStorage();
-    const upload = multer({ storage });
 
+// ================= PROTECTED ADMIN ROUTES (checkAuth laga hai) =================
 
-    // admin page
-    app.get("/admin", async (req, res) => {
+// Admin Panel (Sirf login ke baad khulega)
+app.get("/admin", checkAuth, async (req, res) => {
     const companies = await Company.find();
     const products = await Product.find();
     res.render("admin", { companies, products });
 });
 
-    // add company
-    app.post("/add-company", upload.single("image"), async (req, res) => {
-        try {
-        // Agar file nahi aayi, toh yahi error throw kar dega
-        if (!req.file) {
-            return res.status(400).send("Error: Image file upload nahi hui hai.");
-        }
-        
-        // Image ko Base64 me convert karke MongoDB me store karenge taaki Render par delete na ho
+app.post("/add-company", checkAuth, upload.single("image"), async (req, res) => {
+    try {
+        if (!req.file) return res.status(400).send("Error: Image file upload nahi hui hai.");
         const imageBase64 = req.file.buffer.toString("base64");
         const imageSrc = `data:${req.file.mimetype};base64,${imageBase64}`;
-
-        const newCompany = new Company({
-            name: req.body.name,
-            image: imageSrc
-        });
-
+        const newCompany = new Company({ name: req.body.name, image: imageSrc });
         await newCompany.save();
         res.redirect("/admin");
-
     } catch (error) {
-        console.error("ADD COMPANY ERROR: ", error);
-        res.status(500).send("Internal Server Error Company Add karte waqt: " + error.message);
+        res.status(500).send("Error: " + error.message);
     }
 });
 
-    // delete
-    app.get("/delete/:id", async (req, res) => {
-        await Company.findByIdAndDelete(req.params.id);
-        res.redirect("/admin");
-    });
+app.get("/delete/:id", checkAuth, async (req, res) => {
+    await Company.findByIdAndDelete(req.params.id);
+    res.redirect("/admin");
+});
 
-// ADD PRODUCT
-app.post("/add-product", upload.single("image"), async (req, res) => {
-
+app.post("/add-product", checkAuth, upload.single("image"), async (req, res) => {
     try {
-        if (!req.file) {
-            return res.status(400).send("Error: Image file upload nahi hui hai.");
-        }
-
+        if (!req.file) return res.status(400).send("Error: Image file upload nahi hui hai.");
         const imageBase64 = req.file.buffer.toString("base64");
         const imageSrc = `data:${req.file.mimetype};base64,${imageBase64}`;
-
         const newProduct = new Product({
             name: req.body.name,
             image: imageSrc,
             company: req.body.company
         });
-
         await newProduct.save();
         res.redirect("/admin#product");
-
     } catch (error) {
-        console.error("ADD PRODUCT ERROR: ", error);
-        res.status(500).send("Internal Server Error Product Add karte waqt: " + error.message);
+        res.status(500).send("Error: " + error.message);
     }
 });
 
-app.get("/delete-product/:id", async (req, res) => {
+app.get("/delete-product/:id", checkAuth, async (req, res) => {
     await Product.findByIdAndDelete(req.params.id);
     res.redirect("/admin#product");
+});
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log("Server started on port 3000");
 });
