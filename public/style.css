@@ -1617,3 +1617,94 @@ iframe {
     .branches-left h2{ font-size:26px; }
     .elite-container{ padding:0 15px; }
 }
+
+/* ================= OUR PARTNERS ================= */
+
+.partners-section{
+    padding: 90px 8%;
+    background: #f8f9fc;
+    text-align: center;
+}
+
+.partners-heading span{
+    color: #c9972b;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.partners-heading h2{
+    font-size: 52px;
+    margin-top: 10px;
+    color: #0d1b3e;
+    font-weight: 700;
+}
+
+.partners-heading p{
+    max-width: 700px;
+    margin: 18px auto 60px;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.partners-container{
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+}
+
+.partner-card{
+    width: 280px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 20px;
+    transition: 0.4s ease;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.partner-card:hover{
+    transform: translateY(-10px);
+}
+
+.partner-card img{
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #d4a437;
+    margin-bottom: 25px;
+}
+
+.partner-card h3{
+    font-size: 30px;
+    color: #0d1b3e;
+    margin-bottom: 12px;
+}
+
+.partner-card p{
+    color: #c9972b;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+    .partners-heading h2{
+        font-size: 38px;
+    }
+
+    .partner-card{
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .partner-card img{
+        width: 160px;
+        height: 160px;
+    }
+
+}

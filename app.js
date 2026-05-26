@@ -10,8 +10,9 @@ const fs = require("fs");
 // NAYA: Session require karein
 const session = require("express-session"); 
 
-mongoose.connect("mongodb+srv://Umiya:Umiya@cluster.roninyt.mongodb.net/agroDB?retryWrites=true&w=majority")
-.then(()=> console.log("MongoDB Connected"));
+require("dotenv").config();
+mongoose.connect(process.env.MONGO_URI)
+.then(()=> console.log("MongoDB Connected")).catch(err => console.log(err));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -75,8 +76,8 @@ app.post("/login", (req, res) => {
     const { username, password } = req.body;
     
     // YAHAN AAP APNA DEFAULT ID PASS SET KAR SAKTE HAIN
-    const adminID = "admin";
-    const adminPass = "12345"; 
+    const adminID = process.env.ADMIN_ID;;
+    const adminPass = process.env.ADMIN_PASS; 
 
     if (username === adminID && password === adminPass) {
         req.session.isAdmin = true; // Session save
