@@ -98,15 +98,6 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 
-app.get("/cleanup", async (req, res) => {
-
-    await Product.deleteMany({
-        company: "DeletedCompanyName"
-    });
-
-    res.send("Cleanup Done");
-
-});
 
 // ================= PROTECTED ADMIN ROUTES (checkAuth laga hai) =================
 
