@@ -98,6 +98,16 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
 
+app.get("/cleanup", async (req, res) => {
+
+    await Product.deleteMany({
+        company: "DeletedCompanyName"
+    });
+
+    res.send("Cleanup Done");
+
+});
+
 // ================= PROTECTED ADMIN ROUTES (checkAuth laga hai) =================
 
 // Admin Panel (Sirf login ke baad khulega)
@@ -121,8 +131,29 @@ app.post("/add-company", checkAuth, upload.single("image"), async (req, res) => 
 });
 
 app.get("/delete/:id", checkAuth, async (req, res) => {
-    await Company.findByIdAndDelete(req.params.id);
-    res.redirect("/admin");
+
+    try {
+
+        const company = await Company.findById(req.params.id);
+
+        if (company) {
+
+            // company ke saare products delete
+            await Product.deleteMany({ company: company.name });
+
+            // company delete
+            await Company.findByIdAndDelete(req.params.id);
+        }
+
+        res.redirect("/admin");
+
+    } catch (err) {
+
+        console.log(err);
+        res.send(err.message);
+
+    }
+
 });
 
 app.post("/add-product", checkAuth, upload.single("image"), async (req, res) => {

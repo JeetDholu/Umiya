@@ -83,6 +83,7 @@
 
 <div class="slider">
     <div class="slide-track">
+        <% if(companies && companies.length){ %>
         <% companies.forEach(c => { %>
             <div class="slide">
                 <div class="logo-box">
@@ -90,8 +91,10 @@
                 </div>
             </div>
         <% }) %>
+        <% } %>
 
         <!-- duplicate for smooth loop -->
+          <% if(companies && companies.length){ %>
         <% companies.forEach(c => { %>
             <div class="slide">
                 <div class="logo-box">
@@ -99,6 +102,7 @@
                 </div>
             </div>
         <% }) %>
+        <% } %>
     </div>
 </div>
 

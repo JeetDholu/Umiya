@@ -32,6 +32,7 @@
             </a>
 
             <!-- COMPANY LIST -->
+             <% if(companies && companies.length){ %>
             <% companies.forEach(c => { %>
 
                 <a href="/products?company=<%= c.name %>"
@@ -42,7 +43,7 @@
                 </a>
 
             <% }) %>
-
+            <% } %>
     </div>
 
     <!-- PRODUCTS -->
