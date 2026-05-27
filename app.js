@@ -38,8 +38,13 @@ const checkAuth = (req, res, next) => {
 
 // ================= PUBLIC ROUTES =================
 app.get("/", async (req, res) => {
-    const companies = await Company.find();
-    res.render("home", { companies });
+    try {
+        const companies = await Company.find();
+        res.render("home", { companies });
+    } catch (error) {
+        console.error("Database Error on Home Route:", error);
+        res.status(500).send("Internal Server Error: Could not load data from database.");
+    }
 });
 
 app.get("/about", (req, res) => {
@@ -47,15 +52,20 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/products", async (req, res) => {
-    const companies = await Company.find();
-    let filter = {};
-    let selectedCompany = "";
-    if(req.query.company){
-        filter.company = req.query.company;
-        selectedCompany = req.query.company;
+    try {
+        const companies = await Company.find();
+        let filter = {};
+        let selectedCompany = "";
+        if(req.query.company){
+            filter.company = req.query.company;
+            selectedCompany = req.query.company;
+        }
+        const products = await Product.find(filter);
+        res.render("products", { companies, products, selectedCompany });
+    } catch (error) {
+        console.error("Database Error on Products Route:", error);
+        res.status(500).send("Internal Server Error: Could not load data from database.");
     }
-    const products = await Product.find(filter);
-    res.render("products", { companies, products, selectedCompany });
 });
 
 app.get("/branches", (req, res) => {
