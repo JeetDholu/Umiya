@@ -1171,10 +1171,12 @@ iframe {
 }
 
 .branch-card h3{
-    font-size:32px;
+    font-size:30px;
     color:#071739;
     margin-bottom:18px;
-}
+
+  
+} 
 
 .branch-card p{
     font-size:17px;
